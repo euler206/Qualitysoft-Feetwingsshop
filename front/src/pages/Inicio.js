@@ -1,12 +1,17 @@
 import React from 'react'
+import { Container } from 'react-bootstrap'
 import BannerOfertas from '../components/BannerOfertas'
+import UltimosAgregados from '../components/UltimosAgregados'
+
+
 
 
 function Inicio() {
   return (
-    <div className='d-flex justify-content-center'>
+    <Container className='text-center'>
       <BannerOfertas/>      
-    </div>
+      <UltimosAgregados />
+    </Container>
   )
 }
 
