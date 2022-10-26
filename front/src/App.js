@@ -6,10 +6,9 @@ import Container from "react-bootstrap/Container";
 //import Inicio from "./pages/Inicio";
 import ListarVentas from "./pages/ventas";
 import NavbarComponent from "./components/NavbarComponent";
-import CrearProducto from "./pages/CrearProducto";
-import Footer from "./components/Footer";
-
-
+import Hombre from "./components/Hombre";
+import  Footer  from "./components/Footer";
+import CrearProducto from "./pages/CrearProducto"
 
 
 function App() {
@@ -23,13 +22,13 @@ function App() {
                  
           <Route exact path="/" element={<Inicio />} />       
           <Route exact path="/crearproducto" element={<CrearProducto /> } />
+          <Route exact path="/Hombre" element={<Hombre />} />    
           <Route exact path="/listarventas" element = {<ListarVentas />} /> 
-
-
-</Routes>
+                 
+        </Routes>
       </Container>
     </Container>
-    <Footer />
+    <Footer/>
   </Router>
   );
 }
