@@ -4,7 +4,7 @@ import oferta from "../recursos/images/sales.jpg"
 function BannerOfertas() {
   return (
     <div>
-        <Image width={900} src={oferta} />
+        <Image width={1200} src={oferta} />
     </div>
   )
 }
