@@ -44,7 +44,7 @@ export const Novedades = () => {
                         </div>
                     </div>
                 </div>
-                {/*Producto 2*/}
+                {/*Producto 3*/}
                 <div className='col-sm-12 col-md-6 col-lg-3 my-3'>
                     <div className='card p-3 rounded'>
                         <img src="./images/adidas-n7659.jpg" alt='adidas-n7659'></img>
