@@ -73,8 +73,8 @@ export const Novedades = () => {
                                 </div>
                                 <span id='No_ede_opiniones'> 3 reviews</span>
                             </div>
-                            <p className='card-text'>$260.000</p><a href='http://localhost:3000' id="ver_producto" className='btn btn-block'>
-                                Ver detalles
+                            <p className='card-text'>$245.000</p><a href='http://localhost:3000' id="ver_producto" className='btn btn-block'>
+                                Ver detalle
                             </a>
                         </div>
                     </div>
