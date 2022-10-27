@@ -6,7 +6,6 @@ import Container from "react-bootstrap/Container";
 import Inicio from "./pages/Inicio";
 import ListarVentas from "./pages/ventas";
 import NavbarComponent from "./components/NavbarComponent";
-import { Footer } from "./components/Footer";
 import { Hombre } from "./components/Hombre";
 import { Mujer } from "./components/Mujer";
 import { Kids } from "./components/Kids";
