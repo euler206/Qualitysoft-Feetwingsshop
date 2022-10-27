@@ -1,11 +1,11 @@
 import React from "react";
 import "../App.css";
 
-import ventas from "../data/ventas.json";
-import {Total} from "../components/CargarVentas";
+import { CargarVentas,Total } from "../components/CargarVentas";
 
 
 function ListarVentas() {
+  
   return (
     <div className="container">
       <h1>Listar Ventas</h1>
@@ -19,20 +19,8 @@ function ListarVentas() {
                 <th scope="col">Valor</th>
               </tr>
             </thead>
-            {ventas && ventas.map((record) => {
-                return (
-                  <tbody>
-                    <tr>
-                      <td>{record.fecha}</td>
-                      <td>{record.idVenta}</td>
-                      <td>{record.valor}</td>
-                    </tr>{" "}
-                    <br />
-                  </tbody>
-                );
-              })
-            } 
-            <Total />
+            <CargarVentas /> {/* <--- Aqui se llama al componente CargarVentas */} 
+            <Total /> {/* <--- Aqui se llama al componente Total */}
           </table>
         </div>
       </div>

@@ -6,11 +6,9 @@ import Container from "react-bootstrap/Container";
 import Inicio from "./pages/Inicio";
 import ListarVentas from "./pages/ventas";
 import NavbarComponent from "./components/NavbarComponent";
-import { Footer } from "./components/Footer";
 import { Hombre } from "./components/Hombre";
 import { Mujer } from "./components/Mujer";
 import { Kids } from "./components/Kids";
-import Hombre from "./components/Hombre";
 import  Footer  from "./components/Footer";
 import CrearProducto from "./pages/CrearProducto"
 
@@ -28,7 +26,6 @@ function App() {
           <Route exact path="/Kids" element={<Kids />} />
                  
           <Route exact path="/crearproducto" element={<CrearProducto /> } />
-          <Route exact path="/Hombre" element={<Hombre />} />    
           <Route exact path="/listarventas" element = {<ListarVentas />} /> 
                  
         </Routes>
