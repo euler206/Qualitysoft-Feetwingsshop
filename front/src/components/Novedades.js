@@ -19,7 +19,7 @@ export const Novedades = () => {
                                 </div>
                                 <span id='No_ede_opiniones'> 5 reviews</span>
                             </div>
-                            <p className='card-text'>$190.000</p><a href='http://localhost:3000' id="ver_producto" className='btn btn-block'>
+                            <p className='card-text'>$190.000</p><a href='http://localhost:3000' id="view_btn" className='btn btn-block'>
                                 Ver detalle
                             </a>
                         </div>
@@ -38,7 +38,7 @@ export const Novedades = () => {
                                 </div>
                                 <span id='No_ede_opiniones'> 4 reviews</span>
                             </div>
-                            <p className='card-text'>$210.000</p><a href='http://localhost:3000' id="ver_producto" className='btn btn-block'>
+                            <p className='card-text'>$210.000</p><a href='http://localhost:3000' id="view_btn" className='btn btn-block'>
                                 Ver detalle
                             </a>
                         </div>
@@ -56,7 +56,7 @@ export const Novedades = () => {
                                 </div>
                                 <span id='No_ede_opiniones'> 3 reviews</span>
                             </div>
-                            <p className='card-text'>$260.000</p><a href='http://localhost:3000' id="ver_producto" className='btn btn-block'>
+                            <p className='card-text'>$260.000</p><a href='http://localhost:3000' id="view_btn" className='btn btn-block'>
                                 Ver detalle
                             </a>
                         </div>
