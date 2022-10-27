@@ -6,10 +6,12 @@ import Container from "react-bootstrap/Container";
 import Inicio from "./pages/Inicio";
 import ListarVentas from "./pages/ventas";
 import NavbarComponent from "./components/NavbarComponent";
-import Hombre from "./components/Hombre";
+import { Footer } from "./components/Footer";
+import { Hombre } from "./components/Hombre";
+import { Mujer } from "./components/Mujer";
+import { Kids } from "./components/Kids";
 import  Footer  from "./components/Footer";
 import CrearProducto from "./pages/CrearProducto"
-
 
 function App() {
   return (
@@ -18,10 +20,13 @@ function App() {
     <Container className="">
       <Container className="fondo border py-4 px-4 shadow-lg p-3 mb-5 bg-white rounded">
         <Routes>
-     
-          <Route exact path="/" element={<Inicio />} />       
+
+          <Route exact path="/" element={<Inicio />} /> 
+          <Route exact path="/Hombre" element={<Hombre />} /> 
+          <Route exact path="/Mujer" element={<Mujer />} />
+          <Route exact path="/Kids" element={<Kids />} />
+                 
           <Route exact path="/crearproducto" element={<CrearProducto /> } />
-          <Route exact path="/Hombre" element={<Hombre />} />    
           <Route exact path="/listarventas" element = {<ListarVentas />} /> 
                  
         </Routes>

@@ -19,7 +19,7 @@ export const Novedades = () => {
                                 </div>
                                 <span id='No_ede_opiniones'> 5 reviews</span>
                             </div>
-                            <p className='card-text'>$190.000</p><a href='http://localhost:3000' id="ver_producto" className='btn btn-block'>
+                            <p className='card-text'>$190.000</p><a href='http://localhost:3000' id="view_btn" className='btn btn-block'>
                                 Ver detalle
                             </a>
                         </div>
@@ -38,13 +38,13 @@ export const Novedades = () => {
                                 </div>
                                 <span id='No_ede_opiniones'> 4 reviews</span>
                             </div>
-                            <p className='card-text'>$210.000</p><a href='http://localhost:3000' id="ver_producto" className='btn btn-block'>
+                            <p className='card-text'>$210.000</p><a href='http://localhost:3000' id="view_btn" className='btn btn-block'>
                                 Ver detalle
                             </a>
                         </div>
                     </div>
                 </div>
-                {/*Producto 2*/}
+                {/*Producto 3*/}
                 <div className='col-sm-12 col-md-6 col-lg-3 my-3'>
                     <div className='card p-3 rounded'>
                         <img src="./images/adidas-n7659.jpg" alt='adidas-n7659'></img>
@@ -56,7 +56,7 @@ export const Novedades = () => {
                                 </div>
                                 <span id='No_ede_opiniones'> 3 reviews</span>
                             </div>
-                            <p className='card-text'>$260.000</p><a href='http://localhost:3000' id="ver_producto" className='btn btn-block'>
+                            <p className='card-text'>$260.000</p><a href='http://localhost:3000' id="view_btn" className='btn btn-block'>
                                 Ver detalle
                             </a>
                         </div>
