@@ -11,6 +11,7 @@ import { Mujer } from "./components/Mujer";
 import { Kids } from "./components/Kids";
 import  Footer  from "./components/Footer";
 import CrearProducto from "./pages/CrearProducto"
+import ListarProductos from "./pages/ListarProductos";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           {/*-------------OPCIONES DE ADMIN-----------------*/}
           <Route exact path="/crearproducto" element={<CrearProducto /> } />
           <Route exact path="/listarventas" element = {<ListarVentas />} /> 
+          <Route exact path="/listarproductos" element = {<ListarProductos />} /> 
             {/*-------------FIN OPCIONES DE ADMIN-----------------*/}     
         </Routes>
       </Container>

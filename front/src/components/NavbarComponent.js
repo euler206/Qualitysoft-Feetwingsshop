@@ -11,7 +11,6 @@ import {
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import logo from "../recursos/images/logo.png";
-import { useState } from "react";
 
 function NavbarComponent({ Rol }) {
   
