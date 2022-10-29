@@ -12,7 +12,7 @@ export const Novedades = () => {
                     <div className='card p-3 rounded'>
                         <img src="./images/adidas-h5678.jpg" alt='adidas-h5678'></img>
                         <div className='card-body d-flex flex-column'>
-                            <h5 id='titulo_producto'><a href='http://localhost:3000'>Adidas Performance Hombre</a></h5>
+                            <h5 id='titulo_producto'><a href='http://localhost:3000'>Adidas Performan Hombre</a></h5>
                             <div className='rating mt-auto'>
                                 <div className='rating-outert'>
                                     <div className='raiting-inner'></div>
