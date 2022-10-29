@@ -2,13 +2,13 @@ import React, { Fragment, useState } from 'react'
 import productos from '../data/productos.json';
 
 
-export const Kids = () => {
-    const [data, setData] = useState(productos.filter(item2 => item2.genero ==='Niños'))
-
+export const Catalogo = () => {
+    const [data, setData] = useState(productos);
+    console.log(data)
     return (
         <Fragment >
 
-            <h1 id="encabezado_productos">Catalogo de Hombre</h1>
+            <h1 id="encabezado_productos">Catalogo de productos</h1>
 
             <section id="productos" className='container mt-5'>
                 <div className='row'>
@@ -30,7 +30,9 @@ export const Kids = () => {
                         </div>
                         </div>
                     </div>))}
+
                     <div className='col-sm-12 col-md-6 col-lg-3 my-3'>
+
                     </div>
                 </div>
             </section>

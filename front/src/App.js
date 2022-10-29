@@ -13,6 +13,7 @@ import  Footer  from "./components/Footer";
 import CrearProducto from "./pages/CrearProducto"
 
 import ListarProductos from "./pages/ListarProductos";
+import { Catalogo } from "./pages/Catalogo";
 
 import Login from "./pages/login";
 import Registrar from "./pages/registrar";
@@ -35,7 +36,8 @@ function App() {
           <Route exact path="/Hombre" element={<Hombre />} /> 
           <Route exact path="/Mujer" element={<Mujer />} />
           <Route exact path="/Kids" element={<Kids />} />
-
+          <Route exact path="/Catalogo" element={<Catalogo />} />
+          
           {/*-------------OPCIONES DE ADMIN-----------------*/}
           <Route exact path="/crearproducto" element={<CrearProducto /> } />
           <Route exact path="/listarventas" element = {<ListarVentas />} /> 
