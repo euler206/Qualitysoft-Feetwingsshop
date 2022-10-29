@@ -11,7 +11,14 @@ import { Mujer } from "./components/Mujer";
 import { Kids } from "./components/Kids";
 import  Footer  from "./components/Footer";
 import CrearProducto from "./pages/CrearProducto"
+
 import ListarProductos from "./pages/ListarProductos";
+
+import Login from "./pages/login";
+import Registrar from "./pages/registrar";
+import Recuperar from "./pages/recuperar";
+
+
 
 function App() {
   return (
@@ -22,9 +29,13 @@ function App() {
         <Routes>
 
           <Route exact path="/" element={<Inicio />} /> 
+          <Route exact path="/login" element={<Login />} /> 
+          <Route exact path="/recuperar" element={<Recuperar />} />
+          <Route exact path="/registrar" element={<Registrar />} /> 
           <Route exact path="/Hombre" element={<Hombre />} /> 
           <Route exact path="/Mujer" element={<Mujer />} />
           <Route exact path="/Kids" element={<Kids />} />
+
           {/*-------------OPCIONES DE ADMIN-----------------*/}
           <Route exact path="/crearproducto" element={<CrearProducto /> } />
           <Route exact path="/listarventas" element = {<ListarVentas />} /> 
