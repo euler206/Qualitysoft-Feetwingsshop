@@ -11,15 +11,19 @@ import { Mujer } from "./components/Mujer";
 import { Kids } from "./components/Kids";
 import  Footer  from "./components/Footer";
 import CrearProducto from "./pages/CrearProducto"
+
+import ListarProductos from "./pages/ListarProductos";
+
 import Login from "./pages/login";
 import Registrar from "./pages/registrar";
 import Recuperar from "./pages/recuperar";
 
 
+
 function App() {
   return (
     <Router>
-    <NavbarComponent />
+    <NavbarComponent Rol="Admin" />
     <Container className="">
       <Container className="fondo border py-4 px-4 shadow-lg p-3 mb-5 bg-white rounded">
         <Routes>
@@ -31,9 +35,12 @@ function App() {
           <Route exact path="/Hombre" element={<Hombre />} /> 
           <Route exact path="/Mujer" element={<Mujer />} />
           <Route exact path="/Kids" element={<Kids />} />
-         <Route exact path="/crearproducto" element={<CrearProducto /> } />
+
+          {/*-------------OPCIONES DE ADMIN-----------------*/}
+          <Route exact path="/crearproducto" element={<CrearProducto /> } />
           <Route exact path="/listarventas" element = {<ListarVentas />} /> 
-                 
+          <Route exact path="/listarproductos" element = {<ListarProductos />} /> 
+            {/*-------------FIN OPCIONES DE ADMIN-----------------*/}     
         </Routes>
       </Container>
     </Container>
