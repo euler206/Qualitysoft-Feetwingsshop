@@ -12,6 +12,7 @@ import { Kids } from "./components/Kids";
 import  Footer  from "./components/Footer";
 import CrearProducto from "./pages/CrearProducto"
 import ListarProductos from "./pages/ListarProductos";
+import { Catalogo } from "./pages/Catalogo";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route exact path="/Hombre" element={<Hombre />} /> 
           <Route exact path="/Mujer" element={<Mujer />} />
           <Route exact path="/Kids" element={<Kids />} />
+          <Route exact path="/Catalogo" element={<Catalogo />} />
+          
           {/*-------------OPCIONES DE ADMIN-----------------*/}
           <Route exact path="/crearproducto" element={<CrearProducto /> } />
           <Route exact path="/listarventas" element = {<ListarVentas />} /> 

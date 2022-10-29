@@ -66,14 +66,14 @@ export const Novedades = () => {
                     <div className='card p-3 rounded'>
                         <img src="./images/puma-h7177.jpg" alt='adidas-n7659'></img>
                         <div className='card-body d-flex flex-column'>
-                            <h5 id='titulo_producto'><a href='http://localhost:3000'>Pumas H7177</a></h5>
+                            <h5 id='titulo_producto'><a href='http://localhost:3000'>Pumas Lifestyle Multicolor</a></h5>
                             <div className='rating mt-auto'>
                                 <div className='rating-outert'>
                                     <div className='raiting-inner'></div>
                                 </div>
                                 <span id='No_ede_opiniones'> 3 reviews</span>
                             </div>
-                            <p className='card-text'>$245.000</p><a href='http://localhost:3000' id="ver_producto" className='btn btn-block'>
+                            <p className='card-text'>$245.000</p><a href='http://localhost:3000' id="view_btn" className='btn btn-block'>
                                 Ver detalle
                             </a>
                         </div>
