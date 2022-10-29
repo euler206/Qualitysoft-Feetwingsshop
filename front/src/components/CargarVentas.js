@@ -1,5 +1,7 @@
+import React from "react";
 import "../App.css";
 import ventas from "../data/ventas.json";
+
 
 const CargarVentas = () => 
   ventas && ventas.map((record) => {
