@@ -18,6 +18,7 @@ import { Catalogo } from "./pages/Catalogo";
 import Login from "./pages/login";
 import Registrar from "./pages/registrar";
 import Recuperar from "./pages/recuperar";
+import { ProductDetails } from "./components/ProductDetails";
 
 
 
@@ -37,7 +38,7 @@ function App() {
           <Route exact path="/Mujer" element={<Mujer />} />
           <Route exact path="/Kids" element={<Kids />} />
           <Route exact path="/Catalogo" element={<Catalogo />} />
-          
+          <Route exact path="/Producto/:id" element={<ProductDetails />} />
           {/*-------------OPCIONES DE ADMIN-----------------*/}
           <Route exact path="/crearproducto" element={<CrearProducto /> } />
           <Route exact path="/listarventas" element = {<ListarVentas />} /> 
