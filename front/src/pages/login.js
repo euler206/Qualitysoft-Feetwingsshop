@@ -1,77 +1,103 @@
 import React from 'react'
 import "../styles/login.css"
 import 'bootstrap/dist/css/bootstrap.css';
-import {useState} from "react";
+import { useState } from "react";
+import JsonData from "../data/UsuariosData.json";
+
 
 
 
 function Login() {
 
-  const [data,setDate] = useState( {
-    usuario:"",
-    contraseña:0
-    
+
+
+
+  const [data, setDate] = useState({
+    usuario: "",
+    contraseña: 0,
+    Rol: ""
+
   }
-  
+
 
   )
   return (
 
- 
-  <form>
-  
-    
-  <div class="form-row">  
-    <div className='border-div'> 
-    <div >
-      <br></br>
-      <h1 className='titulo'>Bienvenido!</h1>
-    </div >
-    <div >
-      <div className='label'>
-         <label className='label'>usuario </label>
-         <input type="text" placeholder='ingrese su usuario' onChange={(e)=>{
-          setDate({ ...data, usuario:e.target.value})
-         }
 
-         }></input>
-         </div>
-         
-        
-        <div className='label'>
-        <label className='label'>contraseña </label> 
-            <input type="password" placeholder='ingrese su contraseña'></input>
-            </div>  
-           
-        
-        
-        <div className="boton-div">
-            <button onClick={sesion} type="submit" className="boton">
-            iniciar sesion
+    <form>
+
+
+
+      <div className='border-div'>
+        <div >
+          <br></br>
+          <h1 className='titulo'>Bienvenido!</h1>
+        </div >
+        <div >
+          <label className='label'>Usuario
+            <input type="user" placeholder='ingrese su usuario' onChange={(e) => {
+              setDate({ ...data, user: e.target.value })
+            }
+
+            }></input>
+          </label>
+
+
+          <label className='label'>Contraseña
+            <input type="pass" placeholder='ingrese su contraseña' onChange={(e) => {
+              setDate({ ...data, pass: e.target.value })
+            }
+
+            }></input>
+
+
+          </label>
+
+          <div className="boton-div">
+            <button onClick={VerInfo} type="submit" className="boton">
+              Iniciar sesion
             </button>
-        </div> 
-        
-        
+          </div>
+
+
         </div>
-        <label onClick={recordar} type="button" className='label-registro'>olvido su contraseña?</label>
-        
-        <label onClick={registrar} type="button" className='label-registro'>registrarse!</label>
-    </div>
-    
-    </div>
+        <a href="/recuperar" type="button" className='label-registro'>Olvido su contraseña?</a>
+        <br></br>
+        <a  href="/registrar" className='label-registro'>Registrarse!</a>
+      </div>
+
+
     </form>
-  
-    
+
+
   )
-  function recordar (){
-    alert( "recordar contraseña");
+ 
+  function Validacion(usuarioNombre, contrasena) {
+
+    var decision = false;
+    var datos = JsonData;   
+
+
+    for (const usuario of datos) {
+      if (usuarioNombre === usuario.user && contrasena === usuario.pass) {
+        decision = true;
+      }
+    }
+    return decision;
   }
-  function registrar (){
-    alert( "crear nuevo usuario");
+  function VerInfo() {
+
+    
+
+    console.log(Validacion(data.user, data.pass))
+    if (Validacion(data.user, data.pass)) {
+      alert("Datos ok")
+      
+    } else {
+      alert("Por favor verifique los datos ingresados")
+    }
   }
-  function sesion (){
-    alert( data.usuario);
-  }
+
 }
 
 export default Login
