@@ -11,8 +11,23 @@ import {
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import logo from "../recursos/images/logo.png";
+import { useEffect, useState } from "react";
+import CarritoModal from "./CarritoModal";
 
-function NavbarComponent({ Rol }) {
+
+
+function NavbarComponent({ Rol }) {  
+  const handleClose = () => setmostrarModal(false);
+  const [mostrarModal, setmostrarModal] = useState(false);
+  const [carrito, setCarrito] = useState(0)
+  useEffect(() => {
+    setInterval(() => {
+      const items = JSON.parse(localStorage.getItem('carrito'));
+    if (items) {
+      setCarrito(items.length)
+    }
+    }, 1000);
+  }, [])
   
   return (
     <>
@@ -65,11 +80,12 @@ function NavbarComponent({ Rol }) {
               value={{ color: "#fff", className: "myicons" }}
             >
               <FaUser />
-              <FaShoppingCart />
-              <Badge bg="danger">2</Badge>
+              <FaShoppingCart onClick={() => setmostrarModal(true)}  />
+              <Badge onClick={() => setmostrarModal(true)}  bg="danger">{carrito}</Badge>
             </IconContext.Provider>
           </Nav>
         </Container>
+        <CarritoModal mostrar={mostrarModal} handleClose={handleClose} />
       </Navbar>
     </>
   );
