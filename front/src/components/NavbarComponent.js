@@ -7,6 +7,7 @@ import {
   Badge,
   Image,
   NavDropdown,
+  Dropdown,
 } from "react-bootstrap/";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { IconContext } from "react-icons";
@@ -14,21 +15,19 @@ import logo from "../recursos/images/logo.png";
 import { useEffect, useState } from "react";
 import CarritoModal from "./CarritoModal";
 
-
-
-function NavbarComponent({ Rol }) {  
+function NavbarComponent({ Rol }) {
   const handleClose = () => setmostrarModal(false);
   const [mostrarModal, setmostrarModal] = useState(false);
-  const [carrito, setCarrito] = useState(0)
+  const [carrito, setCarrito] = useState(0);
   useEffect(() => {
     setInterval(() => {
-      const items = JSON.parse(localStorage.getItem('carrito'));
-    if (items) {
-      setCarrito(items.length)
-    }
+      const items = JSON.parse(localStorage.getItem("carrito"));
+      if (items) {
+        setCarrito(items.length);
+      }
     }, 1000);
-  }, [])
-  
+  }, []);
+
   return (
     <>
       <Navbar variant="dark" className="bg-NavBar">
@@ -79,9 +78,21 @@ function NavbarComponent({ Rol }) {
             <IconContext.Provider
               value={{ color: "#fff", className: "myicons" }}
             >
-              <FaUser />
-              <FaShoppingCart onClick={() => setmostrarModal(true)}  />
-              <Badge onClick={() => setmostrarModal(true)}  bg="danger">{carrito}</Badge>
+              <Dropdown>
+                <Dropdown.Toggle variant="Secondary" id="dropdown-basic">
+                  <FaUser />
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="/login">Perfil</Dropdown.Item>
+                  
+                </Dropdown.Menu>
+              </Dropdown>
+
+              <FaShoppingCart onClick={() => setmostrarModal(true)} />
+              <Badge onClick={() => setmostrarModal(true)} bg="danger">
+                {carrito}
+              </Badge>
             </IconContext.Provider>
           </Nav>
         </Container>
