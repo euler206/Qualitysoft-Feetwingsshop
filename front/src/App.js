@@ -17,14 +17,16 @@ import Recuperar from "./pages/recuperar";
 
 
 function App() {
+
   return (
     <Router>
+      
     <NavbarComponent />
     <Container className="">
       <Container className="fondo border py-4 px-4 shadow-lg p-3 mb-5 bg-white rounded">
         <Routes>
-
-          <Route exact path="/" element={<Inicio />} /> 
+        
+          <Route exact path="/" element={<Inicio />}  /> 
           <Route exact path="/login" element={<Login />} /> 
           <Route exact path="/recuperar" element={<Recuperar />} />
           <Route exact path="/registrar" element={<Registrar />} /> 
@@ -33,11 +35,13 @@ function App() {
           <Route exact path="/Kids" element={<Kids />} />
          <Route exact path="/crearproducto" element={<CrearProducto /> } />
           <Route exact path="/listarventas" element = {<ListarVentas />} /> 
-                 
+       
         </Routes>
+        
       </Container>
     </Container>
     <Footer/>
+  
   </Router>
   );
 }
