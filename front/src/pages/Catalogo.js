@@ -1,15 +1,13 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import productos from "../data/productos.json";
 import { Link } from "react-router-dom";
 
-export const Mujer = () => {
-  const [data, setData] = useState(
-    productos.filter((item2) => item2.genero === "Mujer")
-  );
+export const Catalogo = () => {
+  const [data, setData] = useState(productos);
 
   return (
     <Fragment>
-      <h1 id="encabezado_productos">Catalogo de Mujer</h1>
+      <h1 id="encabezado_productos">Catalogo de productos</h1>
 
       <section id="productos" className="container mt-5">
         <div className="row">
@@ -32,7 +30,7 @@ export const Mujer = () => {
                       <div className="rating-inner"></div>
                     </div>
                     <span id="No_de_opiniones">
-                      {item.reviews.length}Reviews
+                      {item.reviews.length} Reviews
                     </span>
                   </div>
                   <p className="card-text">{item.precio}</p>
@@ -47,6 +45,7 @@ export const Mujer = () => {
               </div>
             </div>
           ))}
+
           <div className="col-sm-12 col-md-6 col-lg-3 my-3"></div>
         </div>
       </section>

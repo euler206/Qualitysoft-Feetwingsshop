@@ -21,12 +21,12 @@ function Recuperar() {
     <div className='border-div'> 
     <div >
       <br></br>
-      <h1 className='titulo'>recuperar contraseña!</h1>
+      <h1 className='titulo'>Recuperar!</h1>
     </div >
     <div >
       <div className='label'>
-         <label className='label'>correo electronico </label>
-         <input type="text" placeholder='ingrese su correo electronico'>
+         <label className='label'>Correo Electronico </label>
+         <input type="text" placeholder='Ingrese su correo electronico'>
          
 
         
@@ -37,12 +37,12 @@ function Recuperar() {
         
         <div className="boton-div">
             <button  type="submit" className="boton">
-            recuperar
+            Recuperar
             </button>
         </div> 
         <div className="boton-div">
             <button  type="submit" className="boton">
-            cancelar
+            Cancelar
             </button>
         </div> 
         
