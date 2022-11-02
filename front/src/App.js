@@ -38,7 +38,7 @@ function App() {
           <Route exact path="/Mujer" element={<Mujer />} />
           <Route exact path="/Kids" element={<Kids />} />
           <Route exact path="/Catalogo" element={<Catalogo />} />
-          <Route exact path="/Producto/:id" element={<ProductDetails />} />
+          <Route exact path="/Producto" element={<ProductDetails />} />
           {/*-------------OPCIONES DE ADMIN-----------------*/}
           <Route exact path="/crearproducto" element={<CrearProducto /> } />
           <Route exact path="/listarventas" element = {<ListarVentas />} /> 
