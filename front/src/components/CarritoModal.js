@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import { Link } from "react-router-dom";
 
 function CarritoModal({ mostrar, handleClose }) {
   const [dataMostrar, setdataMostrar] = useState([]);
@@ -50,6 +51,9 @@ function CarritoModal({ mostrar, handleClose }) {
             <Col></Col>
             <Col>Total</Col>
             <Col>${total}.000</Col>
+          </Row>
+          <Row>
+            <Col> <Link className="btn btn-info" to={`/generarventa`} onClick={handleClose}>Pagar</Link></Col>
           </Row>
         </Container>
         </Offcanvas.Body>

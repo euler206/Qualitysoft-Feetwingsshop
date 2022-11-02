@@ -19,6 +19,7 @@ import Login from "./pages/login";
 import Registrar from "./pages/registrar";
 import Recuperar from "./pages/recuperar";
 import { ProductDetails } from "./components/ProductDetails";
+import GenerarVenta from "./pages/GenerarVenta";
 
 
 
@@ -43,6 +44,7 @@ function App() {
           <Route exact path="/crearproducto" element={<CrearProducto /> } />
           <Route exact path="/listarventas" element = {<ListarVentas />} /> 
           <Route exact path="/listarproductos" element = {<ListarProductos />} /> 
+          <Route exact path="/generarventa" element = {<GenerarVenta />} /> 
             {/*-------------FIN OPCIONES DE ADMIN-----------------*/}     
         </Routes>
       </Container>

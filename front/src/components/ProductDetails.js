@@ -32,7 +32,7 @@ export const ProductDetails = () => {
         </div>
 
         <div className="col-12 col-lg-5">
-          <h3>Puma Style</h3>
+          <h3>{productoFiltrado.nombre}</h3>
           <p id="produc_id">ID del Product #{productoFiltrado.id}</p>
           <hr />
 
