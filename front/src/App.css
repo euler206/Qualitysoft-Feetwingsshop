@@ -2,16 +2,11 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  text-align: center;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -28,11 +23,141 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+.menu{
+  border: 0.3em double #80B6C3;
+  background-color:rgb(7 71 166);
+  margin-bottom:0.2em;
+  height:3em;
+  display:block;
+  /*background-image:url(../../Imagenes/fondo_menu.jpg);*/
   }
-  to {
-    transform: rotate(360deg);
+
+  .menu p{
+    text-decoration:none;
+    font-size:1.1em;
+    font-weight:bold;
+    color:#FFFFFF;
+    display:block;
+    padding-right:0.7em;
+    padding-left:0.7em;
+    padding-top:0.5em;
+    }
+    .fondo{
+      
+      min-height: 300px;
+      
+      
+    }
+    .colorFondo{
+      background-color:#00173C;
+    }
+
+    .letraPequena{
+      font-size: 8px;
+    }
+
+    hr.solid {
+      border-top: 3px solid #bbb;
+      
+    }
+
+    .myicons{
+      margin-left: 20px;
+      font-size: 25px;
+    }
+    .textoColor{
+      color: red;
+    }
+    .bg-NavBar{
+      background-color: #2f2c79;
+    }
+
+
+    .bg-buttons{
+      background-color: #9ce0db;
+      }
+
+      #login_btn,
+      #view_btn {
+      background-color: #ee624a;
+      padding: 0.4rem 1.8rem;
+      font-family: calibri;
+      }
+
+
+      .card-body {
+      padding-left: 0;
+      }
+
+      .card-text {
+      font-size: 1.4rem;
+      }
+
+  /* Ratings */
+
+  .rating-outer {
+    display: inline-block;
+    position: relative;
+    font-family: FontAwesome;
+    color: #fdcc0d;
   }
-}
+
+  .rating-outer::before {
+    content: '\f006 \f006 \f006 \f006 \f006';
+  }
+
+  .rating-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+  }
+
+  .rating-inner::before {
+    content: '\f005 \f005 \f005 \f005 \f005';
+    color: #f8ce0b;
+  }
+
+  /* Reviews */
+
+  .rating {
+    margin-top: 10rem;
+  }
+
+  .stars {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+  }
+
+  .star {
+    display: inline;
+    list-style: none;
+    font-size: 3rem;
+    padding-left: 0.9rem;
+    color: #e3e3e3;
+  }
+
+  .star:first-child {
+    padding-left: 0;
+  }
+
+  .orange {
+    color: #fa9c23;
+  }
+
+  .yellow {
+    color: #fdcc0d;
+  }
+
+  .review_user {
+    font-size: 0.8rem;
+    color: grey;
+  }
+    
+  
+      
