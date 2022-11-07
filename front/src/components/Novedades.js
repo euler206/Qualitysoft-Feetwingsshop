@@ -14,10 +14,10 @@ export const Novedades = () => {
                         <div className='card-body d-flex flex-column'>
                             <h5 id='titulo_producto'><a href='http://localhost:3000'>Adidas Performan Hombre</a></h5>
                             <div className='rating mt-auto'>
-                                <div className='rating-outert'>
-                                    <div className='raiting-inner'></div>
+                                <div className='rating-outer'>
+                                    <div className='rating-inner'></div>
                                 </div>
-                                <span id='No_ede_opiniones'> 5 reviews</span>
+                                <span id='No_ede_opiniones'> 5 Reviews</span>
                             </div>
                             <p className='card-text'>$190.000</p><a href='http://localhost:3000' id="view_btn" className='btn btn-block'>
                                 Ver detalle
@@ -33,10 +33,10 @@ export const Novedades = () => {
                         <div className='card-body d-flex flex-column'>
                             <h5 id='titulo_producto'><a href='http://localhost:3000'>Adidas Running Mujer</a></h5>
                             <div className='rating mt-auto'>
-                                <div className='rating-outert'>
-                                    <div className='raiting-inner'></div>
+                                <div className='rating-outer'>
+                                    <div className='rating-inner'></div>
                                 </div>
-                                <span id='No_ede_opiniones'> 4 reviews</span>
+                                <span id='No_ede_opiniones'> 4 Reviews</span>
                             </div>
                             <p className='card-text'>$210.000</p><a href='http://localhost:3000' id="view_btn" className='btn btn-block'>
                                 Ver detalle
@@ -51,10 +51,10 @@ export const Novedades = () => {
                         <div className='card-body d-flex flex-column'>
                             <h5 id='titulo_producto'><a href='http://localhost:3000'>Adidas Breaknet Niño</a></h5>
                             <div className='rating mt-auto'>
-                                <div className='rating-outert'>
-                                    <div className='raiting-inner'></div>
+                                <div className='rating-outer'>
+                                    <div className='rating-inner'></div>
                                 </div>
-                                <span id='No_ede_opiniones'> 3 reviews</span>
+                                <span id='No_ede_opiniones'> 3 Reviews</span>
                             </div>
                             <p className='card-text'>$260.000</p><a href='http://localhost:3000' id="view_btn" className='btn btn-block'>
                                 Ver detalle
@@ -62,16 +62,17 @@ export const Novedades = () => {
                         </div>
                     </div>
                 </div>
+                {/*Producto 4*/}
                 <div className='col-sm-12 col-md-6 col-lg-3 my-3'>
                     <div className='card p-3 rounded'>
                         <img src="./images/puma-h7177.jpg" alt='puma-h7177'></img>
                         <div className='card-body d-flex flex-column'>
                             <h5 id='titulo_producto'><a href='http://localhost:3000'>Puma Lifestyle Multicolor Hombre</a></h5>
                             <div className='rating mt-auto'>
-                                <div className='rating-outert'>
-                                    <div className='raiting-inner'></div>
+                                <div className='rating-outer'>
+                                    <div className='rating-inner'></div>
                                 </div>
-                                <span id='No_ede_opiniones'> 3 reviews</span>
+                                <span id='No_ede_opiniones'> 3 Reviews</span>
                             </div>
                             <p className='card-text'>$245.000</p><a href='http://localhost:3000' id="view_btn" className='btn btn-block'>
                                 Ver detalle
