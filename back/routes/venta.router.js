@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const CatalogoServices = require("../services/catalogo.services");
+const VentaServices = require("../services/venta.services");
 
-const services = new CatalogoServices();
+const services = new VentaServices();
 
 router.get("/", async (req, res) => {
   const data = await services.Todos();
