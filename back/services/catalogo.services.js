@@ -31,7 +31,7 @@ class CatalogoServices {
     };
   }
 
-  async delete(id) {
+  async delete(id) {    
     return {
       data: "Delete por ID",
     };
