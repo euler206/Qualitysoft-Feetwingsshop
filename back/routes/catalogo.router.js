@@ -4,31 +4,36 @@ const CatalogoServices = require("../services/catalogo.services");
 
 const services = new CatalogoServices();
 
+//Ver lista de productos
 router.get("/", async (req, res) => {
   const data = await services.Todos();
   res.json(data);
 });
 
+//Ver producto por id
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   const data = await services.buscarPorid(id);
   res.json(data);
 });
 
-router.post("/", async (req, res) => {
+//Crear un nuevo producto
+router.post("/", async (req, res, next) => {
   const { body } = req;
   const data = await services.create(body);
   res.json(data);
 });
 
-router.put("/", async (req, res) => {
+//Actualizar un producto
+router.patch("/:id", async (req, res) => {
   const { id } = req.params;
   const { body } = req;
   const data = await services.update(id, body);
   res.json(data);
 });
 
-router.delete("/", async (req, res) => {
+//Eliminar producto
+router.delete("/:id", async (req, res) => {
   const { id } = req.params;
   const data = await services.delete(id);
   res.json(data);
