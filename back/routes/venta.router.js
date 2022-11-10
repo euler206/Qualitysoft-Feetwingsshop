@@ -1,39 +1,34 @@
 const express = require("express");
 const router = express.Router();
-const CatalogoServices = require("../services/catalogo.services");
+const VentaServices = require("../services/venta.services");
 
-const services = new CatalogoServices();
+const services = new VentaServices();
 
-//Ver lista de productos
 router.get("/", async (req, res) => {
   const data = await services.Todos();
   res.json(data);
 });
 
-//Ver producto por id
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   const data = await services.buscarPorid(id);
   res.json(data);
 });
 
-//Crear un nuevo producto
-router.post("/", async (req, res, next) => {
+router.post("/", async (req, res) => {
   const { body } = req;
   const data = await services.create(body);
   res.json(data);
 });
 
-//Actualizar un producto
-router.patch("/:id", async (req, res) => {
+router.put("/", async (req, res) => {
   const { id } = req.params;
   const { body } = req;
   const data = await services.update(id, body);
   res.json(data);
 });
 
-//Eliminar producto
-router.delete("/:id", async (req, res) => {
+router.delete("/", async (req, res) => {
   const { id } = req.params;
   const data = await services.delete(id);
   res.json(data);

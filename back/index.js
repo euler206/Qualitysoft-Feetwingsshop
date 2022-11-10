@@ -1,3 +1,4 @@
+require("./config/mongoConnect")
 const express = require('express');
 const app = express();
 const routerApi = require('./routes');
