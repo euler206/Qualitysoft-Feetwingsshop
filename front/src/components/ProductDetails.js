@@ -1,9 +1,16 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import productos from "../data/productos.json";
+//import productos from "../data/productos.json";
 import BotonAddCar from "../components/BotonAddCar";
+import { traerPorId } from "../utils/Catalogo";
 
 export const ProductDetails = () => {
+  useEffect(() => {
+    traerPorId(query.get("idProducto")).then(data => {
+      setproductoFiltrado(data);
+    })
+  }, [])
+  
   const useQuery = () => {
     const { search } = useLocation();
     return React.useMemo(() => new URLSearchParams(search), [search]);
@@ -13,15 +20,15 @@ export const ProductDetails = () => {
   const [cantidadCompra, setCantidadCompra] = useState(1);
   const sumar = () => setCantidadCompra(cantidadCompra + 1);
   const restar = () => setCantidadCompra(cantidadCompra - 1);
-  const [productoFiltrado, setproductoFiltrado] = useState(productos.find(item => item.id === parseInt(dataID)));
-  useEffect(() => {
-   
-
-    
-  }, []);
+  const [productoFiltrado, setproductoFiltrado] = useState(false);
+  
 
   return (
-    <Fragment>
+    
+    <div>
+      {
+        productoFiltrado ? 
+      
       <div className="row d-flex justify-content-around">
         <div className="col-12 col-lg-5 img-fluid" id="imagen_producto">
           <img
@@ -33,13 +40,13 @@ export const ProductDetails = () => {
 
         <div className="col-12 col-lg-5">
           <h3>{productoFiltrado.nombre}</h3>
-          <p id="produc_id">ID del Product #{productoFiltrado.id}</p>
+          <p id="produc_id">ID del Product #{productoFiltrado._id}</p>
           <hr />
 
           <div className="rating-outer">
             <div className="rating-inner"></div>
           </div>
-          <span id="No_de_opiniones">{productoFiltrado.id} Reviews</span>
+          <span id="No_de_opiniones">{productoFiltrado._id} Reviews</span>
           <hr />
           <p id="precio_producto">{productoFiltrado.precio}</p>
           <div className="stockCounter d-inline">
@@ -57,9 +64,8 @@ export const ProductDetails = () => {
             </span>
           </div>
           <BotonAddCar
-            idProducto={productoFiltrado.id}            
-            cantidad={cantidadCompra}
-            
+            idProducto={productoFiltrado._id}            
+            cantidad={cantidadCompra}            
           />
 
           <hr />
@@ -81,7 +87,7 @@ export const ProductDetails = () => {
             Inicia sesión para dejar tu review
           </div>
 
-          {/*Mensaje emergente para dejar opinion y calificacion*/}
+          
           <div className="row mt-2 mb-5">
             <div className="rating w-50">
               <div
@@ -147,6 +153,8 @@ export const ProductDetails = () => {
           </div>
         </div>
       </div>
-    </Fragment>
+      :<h1>Cargando...</h1>
+      }
+    </div>
   );
 };

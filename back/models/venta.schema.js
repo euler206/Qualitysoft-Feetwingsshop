@@ -1,10 +1,10 @@
-const mongoose = require("mongoose")
-const { Schema, model } = mongoose
+const mongoose = require("mongoose");
+const { Schema, model } = mongoose;
 
 const ventaSchema = new Schema({
-    fecha: String,
-    idCliente: String,
-    /*
+  fecha: String,
+  idCliente: String,
+  /*
     cliente:{
         id:String,
         nombre:String,
@@ -18,16 +18,19 @@ const ventaSchema = new Schema({
         pais:String
     },
     */
-    confirmado:Boolean,
-    detalleCompra:[{
-        idProducto:String,
-        cantidad:Number,
-        precio:Number,
-    }],
-    valor : Number
-    
-})
+  confirmado: Boolean,
+  detalleCompra: [
+    {
+      cantidad: Number,
+      idProducto: {
+        type: Schema.Types.ObjectId,
+        ref: "Producto",
+      },
+    },
+  ],  
+  valor: Number,
+});
 
-const Venta = model("Venta",ventaSchema)
+const Venta = model("Venta", ventaSchema);
 
-module.exports = Venta
+module.exports = Venta;

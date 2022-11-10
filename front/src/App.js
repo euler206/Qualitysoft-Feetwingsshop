@@ -1,4 +1,5 @@
 import "./App.css";
+import "alertifyjs/build/css/alertify.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -25,7 +26,7 @@ import  UserLogued  from "./components/UserLogued";
 
 function App() {
   const [dataLogued, setdataLogued] = useState(JSON.parse(localStorage.getItem("userInfo")) || "Cliente" )
-  const [isLogued, setisLogued] = useState(dataLogued.user ? true : false)
+  const [isLogued, setisLogued] = useState(dataLogued.correo ? true : false)
   return (
     <Router>
     <NavbarComponent Rol={isLogued ? dataLogued.Rol : "Cliente"} />

@@ -27,6 +27,7 @@ class CatalogoServices {
 
   async update(id, data) {
     const product = new Catalogo({
+      _id:id,
       nombre:data.nombre,
       genero:data.genero,
       marca:data.marca,

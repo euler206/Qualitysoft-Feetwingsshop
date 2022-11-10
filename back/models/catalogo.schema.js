@@ -5,7 +5,7 @@ const catalogoSchema = new Schema({
     nombre: String,
     genero:String,
     marca:String,
-    precio:String,
+    precio:Number,
     imagen:String,
     cantidad:Number,
     reviews:[]

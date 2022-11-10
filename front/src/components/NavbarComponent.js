@@ -23,8 +23,7 @@ function NavbarComponent({ Rol }) {
     setInterval(() => {
       const items = JSON.parse(localStorage.getItem("carrito"));
       if (items) {
-        setCarrito(items.length);
-      }
+        setCarrito(items.length);      }
     }, 1000);
   }, []);
 

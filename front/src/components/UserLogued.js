@@ -18,9 +18,11 @@ function UserLogued({ dataUser }) {
           <Card style={{ width: "15rem" }}>
             <Card.Img variant="top" src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=" />
             <Card.Body>
-              <Card.Title>{dataUser.user}</Card.Title>
+              <Card.Title>{dataUser.nombres} {dataUser.apellidos}</Card.Title>
+              
+              {dataUser.correo}
               <Card.Text>
-                Esta es una cuenta de Tipo:  <h3>{dataUser.Rol}</h3>
+              {dataUser.Rol}
               </Card.Text>
               <Button type="submit" variant="primary">Cerrar sesion</Button>
             </Card.Body>
