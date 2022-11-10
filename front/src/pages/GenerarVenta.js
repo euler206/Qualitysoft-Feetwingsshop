@@ -1,7 +1,8 @@
 import React, {  useEffect, useState } from "react";
-import { Button, Container, Row, Table, Col } from "react-bootstrap";
+import { Button, Container, Row, Table, Col, Alert } from "react-bootstrap";
 import { FaCcVisa,FaCcMastercard,FaCcDiscover } from 'react-icons/fa';
 import { generarVenta } from "../utils/Ventas";
+import alertify from "alertifyjs" 
 
 
 function GenerarVenta() {
@@ -29,16 +30,28 @@ function GenerarVenta() {
   
   
   const objetoGenerarVenta = async() => {
-    const newVenta =await {
-      fecha:"09/11/2022",
-      idCliente:dataCliente.id || 1,
-      comfirmado:true,
-      detalleCompra:detalleCompra,
-      valor:total
+    if(dataCliente === null){
+      alertify.warning('Debe Inicia sesion para Completar su Compra'); 
+    }else{
+      if(data !== null){
+        const newVenta =await {
+          fecha:"09/11/2022",
+          idCliente:dataCliente._id || 1,
+          comfirmado:true,
+          detalleCompra:detalleCompra,
+          valor:total
+        }
+        await generarVenta(newVenta).then(data => {
+          localStorage.removeItem("carrito")
+          alertify.success('Compra Realizada'); 
+          setdata(null)
+          
+        })
+      }else{
+        alertify.error('Carrito de Compras Vacio'); 
+      }
     }
-    await generarVenta(newVenta).then(data => {
-      console.log(data);
-    })
+    
   }
 
   return (
@@ -81,6 +94,7 @@ function GenerarVenta() {
           <Button onClick={() => objetoGenerarVenta()} >Proceder Con el Pago</Button>
         </Col>
       </Row>
+     
     </Container>
   );
 }

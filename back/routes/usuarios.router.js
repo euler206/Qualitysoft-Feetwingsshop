@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const RegistrarServices = require("../services/registrar.service");
+const RegistrarServices = require("../services/usuarios.service");
 
 const services = new RegistrarServices();
 
@@ -9,9 +9,16 @@ router.get("/", async (req, res) => {
   res.json(data);
 });
 
-router.get("/:id", async (req, res) => {
+router.post("/", async (req, res) => {
   const { id } = req.params;
-  const data = await services.buscarPorid(id);
+  const { body } = req;
+  const data = await services.create(body);
+  res.json(data);
+});
+
+router.post("/login", async (req, res) => {
+  const { body } = req;
+  const data = await services.login(body);
   res.json(data);
 });
 

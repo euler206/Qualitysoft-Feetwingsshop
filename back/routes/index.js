@@ -2,7 +2,7 @@ const express = require('express');
 const catalogoRouter = require("./catalogo.router")
 const ventaRouter = require("./venta.router")
 const loginRouter = require("./login.router")
-const registrarRouter = require("./registrar.router")
+const usuariosRouter = require("./usuarios.router")
 
 function routerApi(app){
     const router = express.Router();
@@ -10,9 +10,8 @@ function routerApi(app){
     router.use("/catalogo", catalogoRouter)
     router.use("/ventas", ventaRouter)
     router.use("/login", loginRouter)
-    router.use("/registrar", registrarRouter)
+    router.use("/usuarios", usuariosRouter)
 
-    
     
   }
   
