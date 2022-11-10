@@ -2,19 +2,27 @@ import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import productos from "../data/productos.json";
+import { traerPorId } from "../utils/Catalogo";
 
 function BotonAddCar({ idProducto, cantidad }) {
-const [producto, setproducto] = useState(productos.find(item => item.id === parseInt(idProducto)))
+  useEffect(() => {
+    traerPorId(idProducto).then(data => {
+      setproducto(data);
+    })
+  }, [])
+  
+const [producto, setproducto] = useState({})
 const [carrito, setcarrito] = useState(JSON.parse(localStorage.getItem("carrito")))
 
-  const guardarEnCarrito = () => {
-    const newData = {
-      idProducto:producto.id,
+  const guardarEnCarrito = async () => {
+    const newData = await {
+      idProducto:producto._id,
       nombre:producto.nombre,
       precio:producto.precio,
       imagen:producto.imagen,
       cantidad:cantidad
     }
+    console.log(newData);
     if (carrito !== null) {
       let olData = carrito
       olData.push(newData)

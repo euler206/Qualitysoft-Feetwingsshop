@@ -1,18 +1,27 @@
-import React, { Fragment, useEffect, useState } from "react";
-import productos from "../data/productos.json";
+import React, {  useEffect, useState } from "react";
+//import productos from "../data/productos.json";
 import { Link } from "react-router-dom";
+import { TraerTodos } from "../utils/Catalogo";
 
 export const Catalogo = () => {
-  const [data, setData] = useState(productos);
+  useEffect(() => {
+    TraerTodos().then(data => {
+      console.log(data);
+      setData(data);
+    })
+  }, [])
+  
+  const [data, setData] = useState(false);
 
   return (
-    <Fragment>
+    <div>
       <h1 id="encabezado_productos">Catalogo de productos</h1>
-
-      <section id="productos" className="container mt-5">
+      {
+        data ? 
+        <section id="productos" className="container mt-5">
         <div className="row">
           {data.map((item) => (
-            <div key={item.id} className="col-sm-12 col-md-6 col-lg-3 my-3">
+            <div key={item._id} className="col-sm-12 col-md-6 col-lg-3 my-3">
               <div className="card p-3 rounded">
                 <img
                   className="card-img-top mx-auto"
@@ -35,7 +44,7 @@ export const Catalogo = () => {
                   </div>
                   <p className="card-text">{item.precio}</p>
                   <Link
-                    to={`/producto?idProducto=${item.id}`}
+                    to={`/Producto?idProducto=${item._id}`}
                     id="view_btn"
                     className="btn btn-block"
                   >
@@ -49,7 +58,11 @@ export const Catalogo = () => {
           <div className="col-sm-12 col-md-6 col-lg-3 my-3"></div>
         </div>
       </section>
-    </Fragment>
+      :
+      <h1>cargando...</h1>
+      }
+      
+    </div>
   );
 };
 

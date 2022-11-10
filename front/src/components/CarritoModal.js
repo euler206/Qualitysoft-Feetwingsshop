@@ -19,8 +19,8 @@ function CarritoModal({ mostrar, handleClose }) {
 
   let total = 0
 
-  dataMostrar.map(item => (
-    total = (Number(item.precio.slice(1,-1)) * item.cantidad) + total
+  dataMostrar?.map((item) => (
+    total = (item.precio * item.cantidad) + total
   ))
   console.log(total);
   return (
@@ -50,7 +50,7 @@ function CarritoModal({ mostrar, handleClose }) {
           <Row>
             <Col></Col>
             <Col>Total</Col>
-            <Col>${total}.000</Col>
+            <Col>${total}</Col>
           </Row>
           <Row>
             <Col> <Link className="btn btn-info" to={`/generarventa`} onClick={handleClose}>Pagar</Link></Col>
