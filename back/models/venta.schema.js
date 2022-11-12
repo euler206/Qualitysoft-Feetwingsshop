@@ -18,13 +18,6 @@ const ventaSchema = new Schema({
         precio: Number,
       },
     ],
-    detalleCompra: [
-      {
-        idProducto: String,
-        cantidad: Number,
-        precio: Number,
-      },
-    ],
     confirmado: Boolean,
     valor: Number,
   },
