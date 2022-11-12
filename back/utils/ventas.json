@@ -8,8 +8,8 @@
       "confirmado": true,
       "detalleCompra": [
         {
-          "idProducto": "GGOEAFKA087599",
           "cantidad": 2,
+          "idProducto": "GGOEAFKA087599",
           "precio" : 56,
           "subtotal": 0
         }

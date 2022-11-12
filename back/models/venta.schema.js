@@ -3,32 +3,31 @@ const { Schema, model } = mongoose;
 
 const ventaSchema = new Schema({
   fecha: String,
-  idCliente: String,
-  /*
-    cliente:{
-        id:String,
-        nombre:String,
-        apellido:String,
-        email:String,
-        telefono:String,
-        direccion:String,
-        ciudad:String,
-        estado:String,
-        codigoPostal:String,
-        pais:String
+  cliente: {
+    idCliente: {
+      type: Schema.Types.ObjectId,
+      ref: "Usuario",
     },
-    */
-  confirmado: Boolean,
-  detalleCompra: [
-    {
-      cantidad: Number,
-      idProducto: {
-        type: Schema.Types.ObjectId,
-        ref: "Producto",
+    detalleCompra: [
+      {
+        idProducto: {
+          type: Schema.Types.ObjectId,
+          ref: "Producto",
+        },
+        cantidad: Number,
+        precio: Number,
       },
-    },
-  ],  
-  valor: Number,
+    ],
+    detalleCompra: [
+      {
+        idProducto: String,
+        cantidad: Number,
+        precio: Number,
+      },
+    ],
+    confirmado: Boolean,
+    valor: Number,
+  },
 });
 
 const Venta = model("Venta", ventaSchema);
