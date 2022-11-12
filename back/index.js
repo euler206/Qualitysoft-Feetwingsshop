@@ -16,4 +16,4 @@ app.get('/', (req, res) => {
   routerApi(app);
   
   app.listen(port);
-console.log('Server is running in Port', process.env.PORT);
+console.log('Server is running in Port', port);
