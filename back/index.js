@@ -2,8 +2,9 @@ require("./config/mongoConnect")
 const express = require('express');
 const app = express();
 const routerApi = require('./routes');
-const port = process.env.PORT || 4000;
 const cors = require("cors")
+
+const port = process.env.PORT || 5000;
 
 app.use(cors())
 app.use(express.json());

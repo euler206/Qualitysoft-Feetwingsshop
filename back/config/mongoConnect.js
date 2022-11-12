@@ -1,13 +1,15 @@
 const mongoose = require('mongoose');
-const connectionString ="mongodb://localhost:27017/Feetwingsshop";
+require('dotenv').config({ path: 'config/config.env' });
 
-const dbconnect = mongoose
-  .connect(connectionString,{useNewUrlParser: true})
-  .then(() => {
-    console.log('database Connected');
+//const connectionString =process.env.DB_LOCAL_URI;      // CONEXION A MONGO LOCAL
+const connectionString =process.env.DB_ATLAS_URI;    // CONEXION A MONGO ATLAS
+
+const dbconnect = mongoose.connect(connectionString,{useNewUrlParser: true})
+  .then(con => {
+    console.log(`Base de datos mongo conectada con el servidor ${con.connection.host}`);
   })
   .catch((err) => {
     console.log(err);
-  });
+  })
 
 module.exports = dbconnect;
