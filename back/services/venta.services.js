@@ -1,5 +1,8 @@
+const { isObjectIdOrHexString } = require("mongoose");
 const Catalogo = require("../models/catalogo.schema");
+const { castObject } = require("../models/venta.schema");
 const Venta = require("../models/venta.schema");
+var mongoose = require('mongoose');
 
 class VentaServices {
   constructor() {
@@ -8,6 +11,7 @@ class VentaServices {
 
   async Todos() {
     await Venta.find({})
+      .populate("idCliente")
       .populate("detalleCompra.idProducto")
       .then((result) => {
         this.data = result;
@@ -18,6 +22,18 @@ class VentaServices {
 
   async buscarPorid(id) {
     await Venta.findById(id).then((result) => {
+      if (!result) {
+        this.data = { Message: "No existe el Id", id };
+      } else {
+        this.data = result;
+      }
+    });
+
+    return this.data;
+  }
+  async buscarPorIdCliente(id) {   
+    var _id = mongoose.Types.ObjectId(id); 
+    await Venta.find({idCliente:_id}).populate("detalleCompra.idProducto").then((result) => {      
       if (!result) {
         this.data = { Message: "No existe el Id", id };
       } else {
@@ -44,9 +60,16 @@ class VentaServices {
       }
     });
   }
-  async create(data) {
-    const { detalleCompra } = data;
-    const venta = await Venta.create(data);
+  async create(data) {   
+    const { detalleCompra,fecha,idCliente,comfirmado,valor } = data;
+    const nData = await {
+      fecha,
+      comfirmado,
+      valor,
+      detalleCompra,
+      idCliente:mongoose.Types.ObjectId(idCliente)
+    }    
+    const venta = await Venta.create(nData);
     if (venta) {
       detalleCompra.map(async (item) => {
         let cantidadVendida = item.cantidad;
