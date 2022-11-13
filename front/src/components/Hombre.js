@@ -6,7 +6,7 @@ import { TraerTodos } from "../utils/Catalogo"
 export const Hombre = () => {
   useEffect(() => {
     TraerTodos().then(data => {
-      setData(data.filter(item => item.genero === "Mujer"))
+      setData(data.filter(item => item.genero === "Hombre"))
     })
   }, [])
   

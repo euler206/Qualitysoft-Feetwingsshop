@@ -1,11 +1,16 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect ,useState } from "react";
 import productos from "../data/productos.json";
 import { Link } from "react-router-dom";
+import { TraerTodos } from "../utils/Catalogo"
 
 export const Mujer = () => {
-  const [data, setData] = useState(
-    productos.filter((item2) => item2.genero === "Mujer")
-  );
+  useEffect(() => {
+    TraerTodos().then(data => {
+      setData(data.filter(item => item.genero === "Mujer"))
+    })
+  }, [])
+  
+  const [data, setData] = useState(false);
 
   return (
     <Fragment>
@@ -13,7 +18,7 @@ export const Mujer = () => {
 
       <section id="productos" className="container mt-5">
         <div className="row">
-          {data.map((item) => (
+          {data ? data.map((item) => (
             <div key={item.id} className="col-sm-12 col-md-6 col-lg-3 my-3">
               <div className="card p-3 rounded">
                 <img
@@ -46,7 +51,7 @@ export const Mujer = () => {
                 </div>
               </div>
             </div>
-          ))}
+          )):""}
           <div className="col-sm-12 col-md-6 col-lg-3 my-3"></div>
         </div>
       </section>

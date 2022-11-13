@@ -2,12 +2,13 @@ const mongoose = require("mongoose")
 const { Schema, model } = mongoose
 
 const catalogoSchema = new Schema({
-    nombre: String,
+    nombre:String,
     genero:String,
     marca:String,
     precio:Number,
     imagen:String,
     cantidad:Number,
+    descripcion:String,
     reviews:[]
 })
 

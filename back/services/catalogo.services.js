@@ -34,6 +34,7 @@ class CatalogoServices {
       precio:data.precio,
       imagen:data.imagen,
       cantidad:data.cantidad,
+      descripcion:data.descripcion,
       reviews:[]
     })
     await Catalogo.findByIdAndUpdate(id, product,{new:true}).then(data =>{ 
@@ -71,6 +72,7 @@ class CatalogoServices {
     precio:data.precio,
     imagen:data.imagen,
     cantidad:data.cantidad,
+    descripcion:data.descripcion,
     reviews:[]
       /*nombre:data.nombre,
       genero:data.genero,
