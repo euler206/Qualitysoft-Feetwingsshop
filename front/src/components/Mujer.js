@@ -19,7 +19,7 @@ export const Mujer = () => {
       <section id="productos" className="container mt-5">
         <div className="row">
           {data ? data.map((item) => (
-            <div key={item.id} className="col-sm-12 col-md-6 col-lg-3 my-3">
+            <div key={item._id} className="col-sm-12 col-md-6 col-lg-3 my-3">
               <div className="card p-3 rounded">
                 <img
                   className="card-img-top mx-auto"
@@ -28,7 +28,7 @@ export const Mujer = () => {
                 ></img>
                 <div className="card-body d-flex flex-column">
                   <h5 id="titulo_producto">
-                    <Link to={`/producto?idProducto=${item.id}`}>
+                    <Link to={`/producto?idProducto=${item._id}`}>
                       {item.nombre}
                     </Link>
                   </h5>
@@ -42,7 +42,7 @@ export const Mujer = () => {
                   </div>
                   <p className="card-text">{item.precio}</p>
                   <Link
-                    to={`/producto?idProducto=${item.id}`}
+                    to={`/producto?idProducto=${item._id}`}
                     id="view_btn"
                     className="btn btn-block"
                   >
