@@ -18,7 +18,7 @@ const ventaSchema = new Schema({
         precio: Number,
       },
     ],
-    confirmado: Boolean,
+    confirmado: Boolean,  //SOBRA
     valor: Number,
   },
 });
