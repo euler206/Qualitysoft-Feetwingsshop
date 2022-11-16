@@ -10,7 +10,7 @@ const usuariosSchema = new Schema({
     Rol:String,
     nombres:String,
     apellidos:String,
-    ceular:String,
+    celular:String,
     genero:String,
     
 })
