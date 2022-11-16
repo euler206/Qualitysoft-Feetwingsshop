@@ -7,20 +7,6 @@ const ventaSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Usuario",
   },
-  /*
-    cliente:{
-        id:String,
-        nombre:String,
-        apellido:String,
-        email:String,
-        telefono:String,
-        direccion:String,
-        ciudad:String,
-        estado:String,
-        codigoPostal:String,
-        pais:String
-    },
-    */
   confirmado: Boolean,
   detalleCompra: [
     {
