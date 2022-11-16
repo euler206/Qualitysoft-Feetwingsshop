@@ -3,24 +3,21 @@ const { Schema, model } = mongoose;
 
 const ventaSchema = new Schema({
   fecha: String,
-  cliente: {
-    idCliente: {
-      type: Schema.Types.ObjectId,
-      ref: "Usuario",
-    },
-    detalleCompra: [
-      {
-        idProducto: {
-          type: Schema.Types.ObjectId,
-          ref: "Producto",
-        },
-        cantidad: Number,
-        precio: Number,
-      },
-    ],
-    confirmado: Boolean,  //SOBRA
-    valor: Number,
+  idCliente:{
+    type: Schema.Types.ObjectId,
+    ref: "Usuario",
   },
+  confirmado: Boolean,
+  detalleCompra: [
+    {
+      cantidad: Number,
+      idProducto: {
+        type: Schema.Types.ObjectId,
+        ref: "Producto",
+      },
+    },
+  ],  
+  valor: Number,
 });
 
 const Venta = model("Venta", ventaSchema);

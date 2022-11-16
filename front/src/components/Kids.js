@@ -1,20 +1,25 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import productos from "../data/productos.json";
 import { Link } from "react-router-dom";
+import { TraerTodos } from "../utils/Catalogo"
 
 export const Kids = () => {
-  const [data, setData] = useState(
-    productos.filter((item2) => item2.genero === "Niños")
-  );
+  useEffect(() => {
+    TraerTodos().then(data => {
+      setData(data.filter(item => item.genero === "Niños"))
+    })
+  }, [])
 
-  return (
+  const [data, setData] = useState(false);
+
+  return ( 
     <Fragment>
       <h1 id="encabezado_productos">Catalogo de Niños</h1>
 
       <section id="productos" className="container mt-5">
         <div className="row">
-          {data.map((item) => (
-            <div key={item.id} className="col-sm-12 col-md-6 col-lg-3 my-3">
+          {data ? data.map((item) => (
+            <div key={item._id} className="col-sm-12 col-md-6 col-lg-3 my-3">
               <div className="card p-3 rounded">
                 <img
                   className="card-img-top mx-auto"
@@ -23,7 +28,7 @@ export const Kids = () => {
                 ></img>
                 <div className="card-body d-flex flex-column">
                   <h5 id="titulo_producto">
-                    <Link to={`/producto?idProducto=${item.id}`}>
+                    <Link to={`/producto?idProducto=${item._id}`}>
                       {item.nombre}
                     </Link>
                   </h5>
@@ -37,7 +42,7 @@ export const Kids = () => {
                   </div>
                   <p className="card-text">{item.precio}</p>
                   <Link
-                    to={`/producto?idProducto=${item.id}`}
+                    to={`/producto?idProducto=${item._id}`}
                     id="view_btn"
                     className="btn btn-block"
                   >
@@ -46,7 +51,7 @@ export const Kids = () => {
                 </div>
               </div>
             </div>
-          ))}
+          )):""}
           <div className="col-sm-12 col-md-6 col-lg-3 my-3"></div>
         </div>
       </section>

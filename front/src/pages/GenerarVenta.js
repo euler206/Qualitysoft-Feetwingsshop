@@ -3,7 +3,7 @@ import { Button, Container, Row, Table, Col, Alert } from "react-bootstrap";
 import { FaCcVisa,FaCcMastercard,FaCcDiscover } from 'react-icons/fa';
 import { generarVenta } from "../utils/Ventas";
 import alertify from "alertifyjs" 
-
+import { HOY } from "../constants/salesConstants";
 
 function GenerarVenta() {
   const [data, setdata] = useState(JSON.parse(localStorage.getItem("carrito")));
@@ -35,7 +35,7 @@ function GenerarVenta() {
     }else{
       if(data !== null){
         const newVenta =await {
-          fecha:"09/11/2022",
+          fecha: HOY, //fecha actual
           idCliente:dataCliente._id || 1,
           comfirmado:true,
           detalleCompra:detalleCompra,

@@ -46,9 +46,9 @@ export const ProductDetails = () => {
           <div className="rating-outer">
             <div className="rating-inner"></div>
           </div>
-          <span id="No_de_opiniones">{productoFiltrado._id} Reviews</span>
+          <span id="No_de_opiniones">{productoFiltrado.reviews.length} Reviews</span>
           <hr />
-          <p id="precio_producto">{productoFiltrado.precio}</p>
+          <p id="precio_producto">${productoFiltrado.precio}</p>
           <div className="stockCounter d-inline">
             <span className="btn btn-danger minus" onClick={restar}>
               -
@@ -72,7 +72,7 @@ export const ProductDetails = () => {
           <p>Stock: {productoFiltrado.cantidad}</p>
           <hr />
           <h4 className="mt-2">Descripción:</h4>
-          <p>{productoFiltrado.nombre}</p>
+          <p>{productoFiltrado.descripcion}</p>
           <hr />
           <button
             id="btn_review"

@@ -15,6 +15,12 @@ router.get("/:id", async (req, res) => {
   res.json(data);
 });
 
+router.get("/cliente/:id", async (req, res) => {
+  const { id } = req.params;
+  const data = await services.buscarPorIdCliente(id);
+  res.json(data);
+});
+
 router.post("/", async (req, res) => {
   const { body } = req;
   const data = await services.create(body);

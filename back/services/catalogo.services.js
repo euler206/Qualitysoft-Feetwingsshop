@@ -34,11 +34,12 @@ class CatalogoServices {
       precio:data.precio,
       imagen:data.imagen,
       cantidad:data.cantidad,
+      descripcion:data.descripcion,
       reviews:[]
     })
     await Catalogo.findByIdAndUpdate(id, product,{new:true}).then(data =>{ 
       if (!data){
-        this.data = { Message: "El producto actulizar no existe", id };
+        this.data = { Message: "El producto actulizar no existe", Error:404 ,id };
         }
         else {
           this.data = { Message: "El producto ha sido actualizado", id };
@@ -54,7 +55,7 @@ class CatalogoServices {
   async delete(id) {
     await Catalogo.findByIdAndRemove(id).then((result) => {
       if (!result) {
-        this.data = { Message: "No existe el Id", id };
+        this.data = { Message: "No existe el Id", Error:404 ,id };
       } else {
         this.data = { Message: "El producto fue eliminado correctamente"};
       }
@@ -71,6 +72,7 @@ class CatalogoServices {
     precio:data.precio,
     imagen:data.imagen,
     cantidad:data.cantidad,
+    descripcion:data.descripcion,
     reviews:[]
       /*nombre:data.nombre,
       genero:data.genero,
@@ -85,7 +87,7 @@ class CatalogoServices {
     })
     await product.save().then(data =>{
       if (!data){
-        this.data = { Message: "El producto no se registro" };
+        this.data = { Message: "El producto no se registro",Error:404 };
         }
         else {
           this.data = { Message: "El producto ha sido registrado"};

@@ -1,7 +1,6 @@
 import React from "react";
 import "../App.css";
-
-import { CargarVentas,Total } from "../components/CargarVentas";
+import { ListarVentasAdmin } from "../components/ListarVentasAdmin";
 
 
 function ListarVentas() {
@@ -10,19 +9,7 @@ function ListarVentas() {
     <div className="container">
       <h1>Listar Ventas</h1>
       <div className="row">
-        <div className="col-12">
-          <table className="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">Fecha</th>
-                <th scope="col">idVenta</th>
-                <th scope="col">Valor</th>
-              </tr>
-            </thead>
-            <CargarVentas /> {/* <--- Aqui se llama al componente CargarVentas */} 
-            <Total /> {/* <--- Aqui se llama al componente Total */}
-          </table>
-        </div>
+        <ListarVentasAdmin />
       </div>
     </div>
   );
