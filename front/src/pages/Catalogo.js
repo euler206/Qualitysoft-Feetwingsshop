@@ -30,7 +30,7 @@ export const Catalogo = () => {
                 ></img>
                 <div className="card-body d-flex flex-column">
                   <h5 id="titulo_producto">
-                    <Link to={`/producto?idProducto=${item.id}`}>
+                    <Link to={`/producto?idProducto=${item._id}`}>
                       {item.nombre}
                     </Link>
                   </h5>
@@ -42,7 +42,7 @@ export const Catalogo = () => {
                       {item.reviews.length} Reviews
                     </span>
                   </div>
-                  <p className="card-text">{item.precio}</p>
+                  <p className="card-text">${item.precio}</p>
                   <Link
                     to={`/Producto?idProducto=${item._id}`}
                     id="view_btn"

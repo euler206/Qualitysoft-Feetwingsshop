@@ -40,7 +40,7 @@ export const Kids = () => {
                       {item.reviews.length} Reviews
                     </span>
                   </div>
-                  <p className="card-text">{item.precio}</p>
+                  <p className="card-text">${item.precio}</p>
                   <Link
                     to={`/producto?idProducto=${item._id}`}
                     id="view_btn"
