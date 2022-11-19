@@ -5,7 +5,7 @@ export const login = async (data) => {
             headers: {
                 'Content-Type': 'application/json'
                 // 'Content-Type': 'application/x-www-form-urlencoded',
-              },
+            },
             body:JSON.stringify(data)
         })
         return await res.json()
@@ -21,7 +21,7 @@ export const registrar = async (data) => {
             headers: {
                 'Content-Type': 'application/json'
                 // 'Content-Type': 'application/x-www-form-urlencoded',
-              },
+            },
             body:JSON.stringify(data)
         })
         return await res.json()

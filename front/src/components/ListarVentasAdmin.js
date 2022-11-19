@@ -79,7 +79,9 @@ export const ListarVentasAdmin = () => {
           <Col>correo</Col>
           <Col>fecha</Col>
           <Col>valor de Venta</Col>
-          <Col>Detalle</Col>
+          {/*
+          <Col>Detalle</Col>  //PENDIENTE
+          */}
         </Row>
         {dataVentas ? (
           dataVentas.map((item, index) => (
@@ -91,7 +93,9 @@ export const ListarVentasAdmin = () => {
               <Col>{item.idCliente.correo}</Col>
               <Col>{item.fecha}</Col>
               <Col>${item.valor}</Col>
-              <Col>Ver</Col>
+              {/*
+              <Col><button type="button" className="btn btn-light">Ver</button></Col>  //PENDIENTE
+              */}
             </Row>
           ))
         ) : (

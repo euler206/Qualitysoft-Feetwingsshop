@@ -4,6 +4,8 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { ventasPorUsuario } from "../utils/Ventas";
 import { Link } from "react-router-dom";
+import admin from "../recursos/images/admin.ico";
+import cliente from "../recursos/images/user.jpeg";
 
 
 function UserLogued({ dataUser }) {
@@ -26,7 +28,7 @@ useEffect(() => {
     <Container>
       <Row>
         <Col md="auto"><Card style={{ width: "15rem" }}>
-            <Card.Img variant="top" src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=" />
+            <Card.Img variant="top" src= {dataUser.Rol === "Admin" ? admin : dataUser.Rol === "Cliente" ? cliente : "https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0="} width="10" />
             <Card.Body>
               
               <Button type="submit" variant="primary">Cerrar sesion</Button>
