@@ -6,6 +6,14 @@ export const TraerTodos = async () => {
         return err
     }   
 }
+export const sinStock = async () => {
+    try{
+        const res = await fetch('http://localhost:4000/api/v1/catalogo/sinStock')
+        return await res.json()
+    } catch(err){
+        return err
+    }   
+}
 
 export const traerPorId = async (id) => {
     try{

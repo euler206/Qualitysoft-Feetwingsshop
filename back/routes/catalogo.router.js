@@ -9,6 +9,10 @@ router.get("/", async (req, res) => {
   const data = await services.Todos();
   res.json(data);
 });
+router.get("/sinStock", async (req, res) => {
+  const data = await services.sinStock();
+  res.json(data);
+});
 
 //Ver producto por id
 router.get("/:id", async (req, res) => {

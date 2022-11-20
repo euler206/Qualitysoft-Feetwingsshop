@@ -22,7 +22,7 @@ function NavbarComponent({ Rol }) {
   const [dataLogued, setdataLogued] = useState(
     JSON.parse(localStorage.getItem("userInfo")) || "Cliente"
   );
-  const [isLogued, setisLogued] = useState(dataLogued.correo ? true : false);
+  const [isLogued, setisLogued] = useState(dataLogued.correo ? true : false);  
   useEffect(() => {
     setInterval(() => {
       const items = JSON.parse(localStorage.getItem("carrito"));
@@ -52,8 +52,7 @@ function NavbarComponent({ Rol }) {
               <NavDropdown.Item href="/Hombre">Hombre</NavDropdown.Item>
               <NavDropdown.Item href="/Mujer">Mujer</NavDropdown.Item>
               <NavDropdown.Item href="/Kids">Niños</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#pricing">Ofertas</Nav.Link>
+            </NavDropdown>          
             {Rol === "Admin" ? (
               <NavDropdown title="Admin" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/crearproducto">

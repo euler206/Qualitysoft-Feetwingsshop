@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import productos from "../data/productos.json";
 import { traerPorId } from "../utils/Catalogo";
+import alertify from "alertifyjs" 
 
 function BotonAddCar({ idProducto, cantidad, stock }) {
   useEffect(() => {
@@ -26,14 +27,15 @@ function BotonAddCar({ idProducto, cantidad, stock }) {
         precio: producto.precio,
         imagen: producto.imagen,
         cantidad: cantidad,
-      };
-      console.log(newData);
+      };      
       if (carrito !== null) {
         let olData = carrito;
         olData.push(newData);
         localStorage.setItem("carrito", JSON.stringify(olData));
+        alertify.success("Producto agregado al Carrito"); 
       } else {
         localStorage.setItem("carrito", JSON.stringify([newData]));
+        alertify.success("Producto agregado al Carrito"); 
       }
     }
   };

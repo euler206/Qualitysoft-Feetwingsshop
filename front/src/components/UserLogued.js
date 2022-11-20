@@ -9,6 +9,11 @@ import cliente from "../recursos/images/user.jpeg";
 
 
 function UserLogued({ dataUser }) {
+  const formatterPeso = new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0
+  })
   const [dataCompras, setdataCompras] = useState(false)
 useEffect(() => {
   ventasPorUsuario(dataUser._id).then(result => {
@@ -58,7 +63,7 @@ useEffect(() => {
               <Row></Row>
             </Col>
             <Col>
-              <Row>Total del Pedido: ${item.valor}</Row>
+              <Row>Total del Pedido: {formatterPeso.format(item.valor)}</Row>
               <Row></Row>
             </Col>
             </Row>
@@ -68,7 +73,7 @@ useEffect(() => {
               <Col md="auto"><Link to={`/producto?idProducto=${r.idProducto._id}`}><img src={r.idProducto.imagen} alt={r.idProducto.imagen} width="50" /> </Link> </Col>
               <Col className="pedidoTextoSecundario"><Link to={`/producto?idProducto=${r.idProducto._id}`}>{r.idProducto.nombre}</Link></Col>
               <Col className="pedidoTextoSecundario">Unidades: {r.cantidad}</Col>
-              <Col className="pedidoTextoSecundario">${r.idProducto.precio}</Col>
+              <Col className="pedidoTextoSecundario">{formatterPeso.format(r.idProducto.precio)}</Col>
               
             </Row>
               ))

@@ -13,6 +13,14 @@ class CatalogoServices {
     return this.data;
   }
 
+  async sinStock() {
+    await Catalogo.find({cantidad:0}).then((result) => {
+      this.data = result;
+    });
+
+    return this.data;
+  }
+
   async buscarPorid(id) {
     await Catalogo.findById(id).then((result) => {
       if (!result) {
