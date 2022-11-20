@@ -31,3 +31,14 @@ export const todasLasVentas = async () => {
         return err
     }   
 }
+
+
+export const ventaPorId = async (id) => {
+    try{
+        const res = await fetch(`http://localhost:4000/api/v1/ventas/${id}`)
+        console.log("entro a utils")
+        return await res.json()
+    } catch(err){
+        return err
+    }   
+}

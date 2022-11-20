@@ -10,12 +10,12 @@ import cliente from "../recursos/images/user.jpeg";
 
 function UserLogued({ dataUser }) {
   const [dataCompras, setdataCompras] = useState(false)
-useEffect(() => {
-  ventasPorUsuario(dataUser._id).then(result => {
-    setdataCompras(result)
-    console.log(result)
-  })
-}, [dataUser._id])
+  useEffect(() => {
+    ventasPorUsuario(dataUser._id).then(result => {
+      setdataCompras(result)
+      console.log(result)
+    })
+  }, [dataUser._id])
 
   
 

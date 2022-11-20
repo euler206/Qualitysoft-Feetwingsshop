@@ -17,6 +17,15 @@ function CarritoModal({ mostrar, handleClose }) {
    
   }, [mostrar]);
 
+  const [carrito, setCarrito] = useState(0);
+  useEffect(() => {
+    setInterval(() => {
+      const items = JSON.parse(localStorage.getItem("carrito"));
+      if (items) {
+        setCarrito(items.length);      }
+    }, 1000);
+  }, []);
+
   let total = 0
 
   dataMostrar?.map((item) => (
