@@ -4,6 +4,11 @@ import { Card, Container, Row, Col } from "react-bootstrap";
 import "../App.css";
 
 export const ListarVentasAdmin = () => {
+  const formatterPeso = new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0
+  })
   const [dataVentas, setdataVentas] = useState(false);
   useEffect(() => {
     todasLasVentas().then((result) => {
@@ -53,7 +58,7 @@ export const ListarVentasAdmin = () => {
             <Card.Header>Resumen de ventas</Card.Header>
             <Card.Body>
               <Card.Title>Dinero Vendido</Card.Title>
-              <Card.Text>${dineroVendido}</Card.Text>
+              <Card.Text>{ formatterPeso.format(dineroVendido)}</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -92,7 +97,7 @@ export const ListarVentasAdmin = () => {
               </Col>
               <Col>{item.idCliente.correo}</Col>
               <Col>{item.fecha}</Col>
-              <Col>${item.valor}</Col>
+              <Col>{ formatterPeso.format(item.valor)}</Col>
               {/*
               <Col><button type="button" className="btn btn-light">Ver</button></Col>  //PENDIENTE
               */}

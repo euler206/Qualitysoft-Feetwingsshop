@@ -19,13 +19,23 @@ function NavbarComponent({ Rol }) {
   const handleClose = () => setmostrarModal(false);
   const [mostrarModal, setmostrarModal] = useState(false);
   const [carrito, setCarrito] = useState(0);
+  const [dataLogued, setdataLogued] = useState(
+    JSON.parse(localStorage.getItem("userInfo")) || "Cliente"
+  );
+  const [isLogued, setisLogued] = useState(dataLogued.correo ? true : false);  
   useEffect(() => {
     setInterval(() => {
       const items = JSON.parse(localStorage.getItem("carrito"));
       if (items) {
-        setCarrito(items.length);      }
+        setCarrito(items.length);
+      }
     }, 1000);
   }, []);
+
+  const cerrarSesion = () => {
+    localStorage.removeItem("userInfo");
+    window.location.reload(false);
+  };
 
   return (
     <>
@@ -42,8 +52,7 @@ function NavbarComponent({ Rol }) {
               <NavDropdown.Item href="/Hombre">Hombre</NavDropdown.Item>
               <NavDropdown.Item href="/Mujer">Mujer</NavDropdown.Item>
               <NavDropdown.Item href="/Kids">Niños</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#pricing">Ofertas</Nav.Link>
+            </NavDropdown>          
             {Rol === "Admin" ? (
               <NavDropdown title="Admin" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/crearproducto">
@@ -82,10 +91,22 @@ function NavbarComponent({ Rol }) {
                   <FaUser />
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                  <Dropdown.Item href="/login">Perfil</Dropdown.Item>
-                  
-                </Dropdown.Menu>
+                {isLogued ? (
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="/login">Perfil</Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={() => {
+                        cerrarSesion();
+                      }}
+                    >
+                      Cerrar Sesion
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                ) : (
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="/login">Iniciar Sesion</Dropdown.Item>                    
+                  </Dropdown.Menu>
+                )}
               </Dropdown>
 
               <FaShoppingCart onClick={() => setmostrarModal(true)} />

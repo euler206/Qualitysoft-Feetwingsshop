@@ -46,7 +46,7 @@ function Registrar() {
           <input
             onChange={(e) => setnombres(e.target.value)}
             type="text"
-            class="form-control is-valid"
+            class="form-control "
             id="validationServer01"
             placeholder="nombres"
             value={nombres}
@@ -59,7 +59,7 @@ function Registrar() {
           <input
             onChange={(e) => setapellidos(e.target.value)}
             type="text"
-            class="form-control is-valid"
+            class="form-control"
             id="validationServer02"
             placeholder={"apellidos"}
             value={apellidos}
@@ -72,7 +72,7 @@ function Registrar() {
           <input
             onChange={(e) => setcorreo(e.target.value)}
             type="text"
-            class="form-control is-valid"
+            class="form-control"
             id="validationServer02"
             placeholder="correo"
             value={correo}
@@ -83,11 +83,11 @@ function Registrar() {
       </div>
       <div class="form-row">
         <div class="col-md-6 mb-3">
-          <label for="validationServer03">Nueva contraseña</label>
+          <label for="validationServer01">Nueva contraseña</label>
           <input
             onChange={(e) => setpassword(e.target.value)}
             type="text"
-            class="form-control is-invalid"
+            class="form-control "
             id="validationServer03"
             placeholder="contraseña"
             value={pass}
@@ -100,7 +100,7 @@ function Registrar() {
           <input
             onChange={(e) => setcelular(e.target.value)}
             type="text"
-            class="form-control is-invalid"
+            class="form-control"
             id="validationServer04"
             placeholder="celular"
             value={celular}

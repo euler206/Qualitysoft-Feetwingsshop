@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import { TraerTodos } from "../utils/Catalogo";
 
 export const Catalogo = () => {
+  const formatterPeso = new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0
+  })
   useEffect(() => {
     TraerTodos().then(data => {
       console.log(data);
@@ -42,7 +47,7 @@ export const Catalogo = () => {
                       {item.reviews.length} Reviews
                     </span>
                   </div>
-                  <p className="card-text">${item.precio}</p>
+                  <p className="card-text">{formatterPeso.format(item.precio)}</p>
                   <Link
                     to={`/Producto?idProducto=${item._id}`}
                     id="view_btn"

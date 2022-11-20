@@ -5,6 +5,11 @@ import BotonAddCar from "../components/BotonAddCar";
 import { traerPorId } from "../utils/Catalogo";
 
 export const ProductDetails = () => {
+  const formatterPeso = new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0
+  })
   useEffect(() => {
     traerPorId(query.get("idProducto")).then(data => {
       setproductoFiltrado(data);
@@ -48,7 +53,7 @@ export const ProductDetails = () => {
           </div>
           <span id="No_de_opiniones">{productoFiltrado.reviews.length} Reviews</span>
           <hr />
-          <p id="precio_producto">${productoFiltrado.precio}</p>
+          <p id="precio_producto">{formatterPeso.format(productoFiltrado.precio)}</p>
           <div className="stockCounter d-inline">
             <span className="btn btn-danger minus" onClick={restar}>
               -
@@ -65,7 +70,8 @@ export const ProductDetails = () => {
           </div>
           <BotonAddCar
             idProducto={productoFiltrado._id}            
-            cantidad={cantidadCompra}            
+            cantidad={cantidadCompra}
+            stock={productoFiltrado.cantidad}           
           />
 
           <hr />

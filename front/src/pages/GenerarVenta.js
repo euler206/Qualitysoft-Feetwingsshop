@@ -41,10 +41,12 @@ function GenerarVenta() {
           detalleCompra:detalleCompra,
           valor:total
         }
-        await generarVenta(newVenta).then(data => {
-          localStorage.removeItem("carrito")
-          alertify.success('Compra Realizada'); 
-          setdata(null)
+        await generarVenta(newVenta).then(async(data) => {
+          await localStorage.removeItem("carrito")
+          await alertify.success('Compra Realizada'); 
+          await setdata(null)
+          window.location.reload(false);
+
           
         })
       }else{

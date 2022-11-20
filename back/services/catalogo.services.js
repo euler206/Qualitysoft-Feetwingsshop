@@ -6,7 +6,15 @@ class CatalogoServices {
   }
 
   async Todos() {
-    await Catalogo.find({}).then((result) => {
+    await Catalogo.find({cantidad:{$gte: 1}}).then((result) => {
+      this.data = result;
+    });
+
+    return this.data;
+  }
+
+  async sinStock() {
+    await Catalogo.find({cantidad:0}).then((result) => {
       this.data = result;
     });
 
