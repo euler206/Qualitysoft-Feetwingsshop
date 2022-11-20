@@ -51,7 +51,7 @@ function Login() {
           <label className="label">
             Contraseña
             <input
-              type="pass"
+              type="password"
               placeholder="ingrese su contraseña"
               value={password}
               onChange={(e) => {

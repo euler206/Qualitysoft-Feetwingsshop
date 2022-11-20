@@ -65,7 +65,8 @@ export const ProductDetails = () => {
           </div>
           <BotonAddCar
             idProducto={productoFiltrado._id}            
-            cantidad={cantidadCompra}            
+            cantidad={cantidadCompra}
+            stock={productoFiltrado.cantidad}           
           />
 
           <hr />

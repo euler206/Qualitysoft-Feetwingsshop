@@ -4,36 +4,39 @@ import { BsFillCartPlusFill } from "react-icons/bs";
 import productos from "../data/productos.json";
 import { traerPorId } from "../utils/Catalogo";
 
-function BotonAddCar({ idProducto, cantidad }) {
+function BotonAddCar({ idProducto, cantidad, stock }) {
   useEffect(() => {
-    traerPorId(idProducto).then(data => {
+    traerPorId(idProducto).then((data) => {
       setproducto(data);
-    })
-  }, [])
-  
-const [producto, setproducto] = useState({})
-const [carrito, setcarrito] = useState(JSON.parse(localStorage.getItem("carrito")))
+    });
+  }, []);
+
+  const [producto, setproducto] = useState({});
+  const [carrito, setcarrito] = useState(
+    JSON.parse(localStorage.getItem("carrito"))
+  );
 
   const guardarEnCarrito = async () => {
-    const newData = await {
-      idProducto:producto._id,
-      nombre:producto.nombre,
-      precio:producto.precio,
-      imagen:producto.imagen,
-      cantidad:cantidad
+    if (cantidad > stock || cantidad <= 0) {
+      alert("Verifique el Stock");
+    } else {
+      const newData = await {
+        idProducto: producto._id,
+        nombre: producto.nombre,
+        precio: producto.precio,
+        imagen: producto.imagen,
+        cantidad: cantidad,
+      };
+      console.log(newData);
+      if (carrito !== null) {
+        let olData = carrito;
+        olData.push(newData);
+        localStorage.setItem("carrito", JSON.stringify(olData));
+      } else {
+        localStorage.setItem("carrito", JSON.stringify([newData]));
+      }
     }
-    console.log(newData);
-    if (carrito !== null) {
-      let olData = carrito
-      olData.push(newData)
-      localStorage.setItem("carrito", JSON.stringify(olData));
-      
-    }else{
-      localStorage.setItem("carrito", JSON.stringify([newData]));
-    }
-
-  }
-
+  };
 
   return (
     <div>

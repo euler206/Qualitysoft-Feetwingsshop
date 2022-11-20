@@ -6,7 +6,7 @@ class CatalogoServices {
   }
 
   async Todos() {
-    await Catalogo.find({}).then((result) => {
+    await Catalogo.find({cantidad:{$gte: 1}}).then((result) => {
       this.data = result;
     });
 

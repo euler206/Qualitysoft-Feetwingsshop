@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Container, Form, Row, Col } from "react-bootstrap";
 import { crearProductoEnCatalogo } from "../utils/Catalogo";
 import alertify from "alertifyjs" 
+import { uploadle } from "../firebase/config";
 
 
 
@@ -15,28 +16,36 @@ function CrearProducto() {
   const [imagen, setimagen] = useState("");
   const [genero, setgenero] = useState("Mujer");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();    
-    const data = await {
-      nombre,
-      genero,
-      marca,
-      precio,
-      cantidad,
-      reviews:[],
-      imagen:`./images/${imagen.split(/(\\|\/)/g).pop()}`
-    }
-    crearProductoEnCatalogo(data).then(result => {
-      if (result.Error) {
-        alertify.warning(result.Message); 
-      }else{
-        alertify.success(result.Message); 
-        setnombre("")
-        setmarca("")
-        setdescripcion("")
+  const handleSubmit = async (e) => {    
+    e.preventDefault();
+    try {
+      const result = await uploadle(imagen)
+      const data = await {
+        nombre,
+        genero,
+        marca,
+        precio,
+        cantidad,
+        reviews:[],
+        imagen:result
       }
-    })
-
+      crearProductoEnCatalogo(data).then(result => {
+        if (result.Error) {
+          alertify.warning(result.Message); 
+        }else{
+          alertify.success(result.Message); 
+          setnombre("")
+          setmarca("")
+          setdescripcion("")
+        }
+      })
+       
+    } catch (error) {
+      alert("Error al Cargar Archivo", error)
+    }
+    /*
+   
+*/
 
   };
 
@@ -106,7 +115,8 @@ function CrearProducto() {
               <Form.Control
               required
                 type="file"
-                onChange={(e) =>setimagen(e.target.value)}
+                name="file"
+                onChange={(e) =>setimagen(e.target.files[0])}
               />
             </Form.Group>
             <Form.Group className="mb-3">
