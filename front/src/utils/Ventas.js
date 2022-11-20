@@ -34,6 +34,7 @@ export const todasLasVentas = async () => {
 
 
 export const ventaPorId = async (id) => {
+    console.log("Entro a la funcion ventaPortId id = ", id);
     try{
         const res = await fetch(`http://localhost:4000/api/v1/ventas/${id}`)
         console.log("entro a utils")

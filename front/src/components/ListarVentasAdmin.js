@@ -6,10 +6,13 @@ import DetalleVenta from "./DetalleVenta";
 
 
 export const ListarVentasAdmin = () => {
-  const [dataVentas, setdataVentas] = useState(false);
   const handleClose = () => setVerDetalle(false);
-  const [verDetalle, setVerDetalle] = useState(false);
 
+  const [dataVentas, setdataVentas] = useState(0);
+  
+  
+  const [verDetalle, setVerDetalle] = useState({});
+  
   useEffect(() => {
     todasLasVentas().then((result) => {
       setdataVentas(result);
@@ -101,7 +104,7 @@ export const ListarVentasAdmin = () => {
               <Col>${item.valor}</Col>
               {
               <Col>
-                <button type="button" className="btn btn-light" onClick={() => setVerDetalle(item)} >Ver</button> 
+                <button type="button" className="btn btn-light" onClick={() => {setVerDetalle(item); handleClose(false)} }>Ver</button> 
               </Col>  
           }
             </Row>
@@ -112,7 +115,7 @@ export const ListarVentasAdmin = () => {
       </Row>
     </Container>
     {
-    <DetalleVenta dataVenta={verDetalle} handleClose={handleClose} />
+    <DetalleVenta dataVenta={verDetalle} handleClose={handleClose} /> 
     }
     </>
   );

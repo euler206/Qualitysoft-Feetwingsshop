@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
+  console.log("*********** id = ", id);
   const data = await services.buscarPorid(id);
   res.json(data);
 });

@@ -5,21 +5,27 @@ import { Link } from "react-router-dom";
 import { ventaPorId } from "../utils/Ventas";
 
 
-function DetalleVenta({ dataVenta, handleClose }) {
+function DetalleVenta({ dataVenta  , handleClose } ) {
   const [dataCompras, setdataCompras] = useState([]);
-  console.log("dataventa = ", dataVenta._id);
+  console.log("estamos en DetalleVenta (dataventa)  = ", dataVenta._id);
+  console.log("Variable handleClose  = ", handleClose);
   
-  ventaPorId(dataVenta._id)
-  /*
   useEffect(() => {
-    ventaPorId(dataVenta._id).then(result => {
-    setdataCompras(result)
+    console.log("entre a UseEfect");
+    console.log("dataVenta=", dataVenta);
+    if (!(dataVenta._id === undefined)) {  
+      ventaPorId(dataVenta._id).then((result) => {
+        console.log("result.detalleCompra = ", result.detalleCompra);
+        setdataCompras(result.detalleCompra);
+      })
+    }
+    else console.log("No entre a ventaPorId");
+  
+  }, dataVenta._id);
     
-    })
-  }, [dataVenta])
-  console.log("dataventa = ", dataVenta);
   
   let total = 0
+  console.log("datacompras = ", dataCompras);
 
   dataCompras?.map((item) => (
     total = (item.precio * item.cantidad) + total
@@ -78,7 +84,7 @@ function DetalleVenta({ dataVenta, handleClose }) {
       </Offcanvas>
     </>
   );
-  */
+  
 }
 
 export default DetalleVenta;
