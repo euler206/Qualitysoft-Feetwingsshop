@@ -2,30 +2,43 @@ import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import productos from "../data/productos.json";
+import { traerPorId } from "../utils/Catalogo";
+import alertify from "alertifyjs" 
 
-function BotonAddCar({ idProducto, cantidad }) {
-const [producto, setproducto] = useState(productos.find(item => item.id === parseInt(idProducto)))
-const [carrito, setcarrito] = useState(JSON.parse(localStorage.getItem("carrito")))
+function BotonAddCar({ idProducto, cantidad, stock }) {
+  useEffect(() => {
+    traerPorId(idProducto).then((data) => {
+      setproducto(data);
+    });
+  }, []);
 
-  const guardarEnCarrito = () => {
-    const newData = {
-      idProducto:producto.id,
-      nombre:producto.nombre,
-      precio:producto.precio,
-      imagen:producto.imagen,
-      cantidad:cantidad
+  const [producto, setproducto] = useState({});
+  const [carrito, setcarrito] = useState(
+    JSON.parse(localStorage.getItem("carrito"))
+  );
+
+  const guardarEnCarrito = async () => {
+    if (cantidad > stock || cantidad <= 0) {
+      alert("Verifique el Stock");
+    } else {
+      const newData = await {
+        idProducto: producto._id,
+        nombre: producto.nombre,
+        precio: producto.precio,
+        imagen: producto.imagen,
+        cantidad: cantidad,
+      };      
+      if (carrito !== null) {
+        let olData = carrito;
+        olData.push(newData);
+        localStorage.setItem("carrito", JSON.stringify(olData));
+        alertify.success("Producto agregado al Carrito"); 
+      } else {
+        localStorage.setItem("carrito", JSON.stringify([newData]));
+        alertify.success("Producto agregado al Carrito"); 
+      }
     }
-    if (carrito !== null) {
-      let olData = carrito
-      olData.push(newData)
-      localStorage.setItem("carrito", JSON.stringify(olData));
-      
-    }else{
-      localStorage.setItem("carrito", JSON.stringify([newData]));
-    }
-
-  }
-
+  };
 
   return (
     <div>

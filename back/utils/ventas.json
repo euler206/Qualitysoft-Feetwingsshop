@@ -1,0 +1,90 @@
+
+  [ 
+     {
+      "fecha": "27/09/2022",
+      "idCliente": "111111",
+      "idVenta": "123",
+      "valor": 35,
+      "confirmado": true,
+      "detalleCompra": [
+        {
+          "cantidad": 2,
+          "idProducto": "GGOEAFKA087599",
+          "precio" : 56,
+          "subtotal": 0
+        }
+      ]
+    },
+    {
+      "fecha": "28/09/2022",
+      "idCliente": "22222",
+      "idVenta": "234",
+      "valor": 50,
+      "confirmado": false,
+      "detalleCompra": [
+        {
+          "idProducto": "GGOEAFKA087499",
+          "cantidad": 2,
+          "precio" : 70,
+          "subtotal": 0
+        }
+      ]
+    },
+    {
+      "fecha": "29/09/2022",
+      "idCliente": "1231",
+      "idVenta": "543",
+      "valor": 10,
+      "confirmado": true,
+      "detalleCompra": [
+        {
+          "idProducto": "GGOEAFKA087499",
+          "cantidad": 2,
+          "precio" : 64
+        },
+        {
+          "idProducto": "GGOEAFKA087599",
+          "cantidad": 1,
+          "precio" : 80
+        }
+      ]
+    },
+    {
+      "fecha": "29/09/2022",
+      "idCliente": "1251",
+      "idVenta": "558",
+      "valor": 10,
+      "confirmado": true,
+      "detalleCompra": [
+        {
+          "idProducto": "GGOEAFKA087499",
+          "cantidad": 3,
+          "precio" : 50
+        },
+        {
+          "idProducto": "GGOEAFKA087599",
+          "cantidad": 4,
+          "precio" : 115
+        }
+      ]
+    },
+    {
+      "fecha": "29/09/2022",
+      "idCliente": "1233",
+      "idVenta": "559",
+      "valor": 10,
+      "confirmado": true,
+      "detalleCompra": [
+        {
+          "idProducto": "GGOEAFKA087499",
+          "cantidad": 2,
+          "precio" : 40
+        },
+        {
+          "idProducto": "GGOEAFKA087599",
+          "cantidad": 3,
+          "precio" : 55
+        }
+      ]
+    }
+  ]

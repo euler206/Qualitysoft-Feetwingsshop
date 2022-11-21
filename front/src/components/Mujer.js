@@ -1,11 +1,21 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect ,useState } from "react";
 import productos from "../data/productos.json";
 import { Link } from "react-router-dom";
+import { TraerTodos } from "../utils/Catalogo"
 
 export const Mujer = () => {
-  const [data, setData] = useState(
-    productos.filter((item2) => item2.genero === "Mujer")
-  );
+  const formatterPeso = new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0
+  })
+  useEffect(() => {
+    TraerTodos().then(data => {
+      setData(data.filter(item => item.genero === "Mujer"))
+    })
+  }, [])
+  
+  const [data, setData] = useState(false);
 
   return (
     <Fragment>
@@ -13,8 +23,8 @@ export const Mujer = () => {
 
       <section id="productos" className="container mt-5">
         <div className="row">
-          {data.map((item) => (
-            <div key={item.id} className="col-sm-12 col-md-6 col-lg-3 my-3">
+          {data ? data.map((item) => (
+            <div key={item._id} className="col-sm-12 col-md-6 col-lg-3 my-3">
               <div className="card p-3 rounded">
                 <img
                   className="card-img-top mx-auto"
@@ -23,7 +33,7 @@ export const Mujer = () => {
                 ></img>
                 <div className="card-body d-flex flex-column">
                   <h5 id="titulo_producto">
-                    <Link to={`/producto?idProducto=${item.id}`}>
+                    <Link to={`/producto?idProducto=${item._id}`}>
                       {item.nombre}
                     </Link>
                   </h5>
@@ -35,9 +45,9 @@ export const Mujer = () => {
                       {item.reviews.length}Reviews
                     </span>
                   </div>
-                  <p className="card-text">{item.precio}</p>
+                  <p className="card-text">{ formatterPeso.format(item.precio)}</p>
                   <Link
-                    to={`/producto?idProducto=${item.id}`}
+                    to={`/producto?idProducto=${item._id}`}
                     id="view_btn"
                     className="btn btn-block"
                   >
@@ -46,7 +56,7 @@ export const Mujer = () => {
                 </div>
               </div>
             </div>
-          ))}
+          )):""}
           <div className="col-sm-12 col-md-6 col-lg-3 my-3"></div>
         </div>
       </section>

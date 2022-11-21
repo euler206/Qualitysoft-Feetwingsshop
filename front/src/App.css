@@ -158,6 +158,25 @@
     font-size: 0.8rem;
     color: grey;
   }
+
+  .pedidoTitulo{
+    font-size: 0.8rem;
+  }
+  
+  .pedidoCabecera{
+    font-size: 0.8rem;    
+    font-weight: bold;
+    padding: 10px;
+  }
+  .pedidoPrincipal{
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color:#F0F0F0;
     
+  }
+  .pedidoTextoSecundario{
+    color: #858585;
+    font-size: 0.8rem;
+  }
   
       

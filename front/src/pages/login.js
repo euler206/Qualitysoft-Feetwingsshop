@@ -1,18 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/login.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { useState } from "react";
-import JsonData from "../data/UsuariosData.json";
+//import JsonData from "../data/UsuariosData.json";
 import { Container, Form } from "react-bootstrap";
+import {login} from "../utils/Usuarios"
+import alertify from "alertifyjs" 
 
 function Login() {
-  const [data, setDate] = useState({
-    usuario: "",
-    contraseña: 0,
-    Rol: "",
-  });
+  //localStorage.setItem("userInfo", JSON.stringify(dataRol));
+  const [usuario, setusuario] = useState("")
+  const [password, setPassword] = useState("")
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    login({correo:usuario,pass:password}).then(result => {
+      if (result.Message) {
+        alertify.error(result.Message)
+      }else{        
+        localStorage.setItem("userInfo", JSON.stringify(result));
+        window.location.reload(true)
+      }
+    })
+  }
+ 
+  useEffect(() => {
+  }, [])
+  
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Container>
         <div>
           <br></br>
@@ -24,8 +40,10 @@ function Login() {
             <input
               type="user"
               placeholder="ingrese su usuario"
+              value={usuario}
               onChange={(e) => {
-                setDate({ ...data, user: e.target.value });
+                setusuario(e.target.value)
+                
               }}
             ></input>
           </label>
@@ -33,16 +51,17 @@ function Login() {
           <label className="label">
             Contraseña
             <input
-              type="pass"
+              type="password"
               placeholder="ingrese su contraseña"
+              value={password}
               onChange={(e) => {
-                setDate({ ...data, pass: e.target.value });
+                setPassword(e.target.value)
               }}
             ></input>
           </label>
 
           <div className="boton-div">
-            <button onClick={VerInfo} type="submit" className="boton">
+            <button  type="submit" className="boton">
               Iniciar sesion
             </button>
           </div>
@@ -58,27 +77,7 @@ function Login() {
     </Form>
   );
 
-  function Validacion(usuarioNombre, contrasena) {
-    var decision = false;
-    var datos = JsonData;
-
-    for (const usuario of datos) {
-      if (usuarioNombre === usuario.user && contrasena === usuario.pass) {
-        decision = true;
-      }
-    }
-    return decision;
-  }
-  function VerInfo(e) {
-   
-    if (Validacion(data.user, data.pass)) {
-      const dataRol = JsonData.find(item => item.user === data.user)
-      localStorage.setItem("userInfo", JSON.stringify(dataRol));
-      
-    } else {
-      alert("Por favor verifique los datos ingresados");
-    }
-  }
+  
 }
 
 export default Login;
