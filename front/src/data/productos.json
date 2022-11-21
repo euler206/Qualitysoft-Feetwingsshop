@@ -1,0 +1,185 @@
+[
+    {
+       "id":1,
+       "nombre":"Adidas Performan Hombre",
+       "genero":"Hombre",
+       "marca":"Aiddas",
+       "precio":"$190.000",       
+       "imagen":"./images/adidas-h5678.jpg",
+       "cantidad":10,
+       "reviews":[]
+    },
+    {
+      "id":2,
+      "nombre":"Nike Lifestyle Hombre",
+      "genero":"Hombre",
+      "marca":"Nike",
+      "precio":"$299.000",       
+      "imagen":"./images/nike-h9018.jpg",
+      "cantidad":12,
+      "reviews":[]
+   }   ,
+    {
+      "id":3,
+      "nombre":"Poloclub Royal County Hombre",
+      "genero":"Hombre",
+      "marca":"Royal County",
+      "precio":"$150.000",       
+      "imagen":"./images/poloclub-h9632.jpg",
+      "cantidad":9,
+      "reviews":[]
+   },
+   {
+      "id":4,
+      "nombre":"Puma Lifestyle Multicolor Hombre",
+      "genero":"Hombre",
+      "marca":"Puma",
+      "precio":"$299.000",       
+      "imagen":"./images/puma-h7177.jpg",
+      "cantidad":7,
+      "reviews":[]
+   },
+   {
+      "id":5,
+      "nombre":"Reebok Classics Hombre",
+      "genero":"Hombre",
+      "marca":"Reebok",
+      "precio":"$274.000",       
+      "imagen":"./images/reebok-h8954.jpg",
+      "cantidad":6,
+      "reviews":[]
+   },
+   {
+      "id":6,
+      "nombre":"Skechers Gorun Hombre",
+      "genero":"Hombre",
+      "marca":"Skechers",
+      "precio":"$274.000",       
+      "imagen":"./images/skechers-h7456.jpg",
+      "cantidad":14,
+      "reviews":[]
+   },
+   {
+      "id":7,
+      "nombre":"Adidas Running Mujer",
+      "genero":"Mujer",
+      "marca":"Adidas",
+      "precio":"$210.000",       
+      "imagen":"./images/adidas-m9654.jpg",
+      "cantidad":11,
+      "reviews":[]
+   },
+   {
+      "id":8,
+      "nombre":"New Balance Sring Mujer",
+      "genero":"Mujer",
+      "marca":"New Balance",
+      "precio":"$454.000",       
+      "imagen":"./images/new-balance-m2668.jpg",
+      "cantidad":11,
+      "reviews":[]
+   },
+   {
+      "id":9,
+      "nombre":"Nike SC Air Max Mujer",
+      "genero":"Mujer",
+      "marca":"Nike",
+      "precio":"$407.000",       
+      "imagen":"./images/adidas-m9654.jpg",
+      "cantidad":11,
+      "reviews":[]
+   },
+   {
+      "id":10,
+      "nombre":"Puma Lifestyle Future Mujer",
+      "genero":"Mujer",
+      "marca":"Adidas",
+      "precio":"$210.000",       
+      "imagen":"./images/nike-m4917.jpg",
+      "cantidad":11,
+      "reviews":[]
+   },
+   {
+      "id":11,
+      "nombre":"Reebok Nanoflex Mujer",
+      "genero":"Mujer",
+      "marca":"Reebok",
+      "precio":"$275.000",       
+      "imagen":"./images/reebok-m4220.jpg",
+      "cantidad":11,
+      "reviews":[]
+   },
+   {
+      "id":12,
+      "nombre":"Reebok Running Rider Mujer",
+      "genero":"Mujer",
+      "marca":"Adidas",
+      "precio":"$217.000",       
+      "imagen":"./images/reebok-m6336.jpg",
+      "cantidad":11,
+      "reviews":[]
+   },
+   {
+      "id":13,
+      "nombre":"Adidas Lifestyle Niña",
+      "genero":"Niños",
+      "marca":"Adidas",
+      "precio":"$111.000",       
+      "imagen":"./images/adidas-n1886.jpg",
+      "cantidad":11,
+      "reviews":[]
+   },
+   {
+      "id":14,
+      "nombre":"Adidas Grand Court Niño",
+      "genero":"Niños",
+      "marca":"Adidas",
+      "precio":"$209.000",       
+      "imagen":"./images/adidas-n7659.jpg",
+      "cantidad":11,
+      "reviews":[]
+   },
+   {
+      "id":15,
+      "nombre":"Bubblegummers Moisés Niño",
+      "genero":"Niños",
+      "marca":"Bubblegummers",
+      "precio":"$53.000",       
+      "imagen":"./images/bubblegummers-n8405.jpg",
+      "cantidad":11,
+      "reviews":[]
+   },
+   {
+      "id":16,
+      "nombre":"Marvel Licenses Hercai Niño",
+      "genero":"Niños",
+      "marca":"Marvel",
+      "precio":"$95.000",       
+      "imagen":"./images/marvel-n1507.jpg",
+      "cantidad":11,
+      "reviews":[]
+   },
+   {
+      "id":17,
+      "nombre":"New Balance Running Rave Niña",
+      "genero":"Niños",
+      "marca":"New Balance",
+      "precio":"$209.000",       
+      "imagen":"./images/new-balance-n4686.jpg",
+      "cantidad":11,
+      "reviews":[]
+   },
+   {
+      "id":18,
+      "nombre":"New Balance Little Niña-",
+      "genero":"Niños",
+      "marca":"New Balance",
+      "precio":"$194.000",       
+      "imagen":"./images/new-balance-n4450.jpg",
+      "cantidad":11,
+      "reviews":[]
+   }
+   
+   
+    
+ ]
