@@ -1,0 +1,63 @@
+services:
+  backend:
+    image: back_img
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    container_name: back_svc 
+    restart: always
+    env_file:
+      - ./back/config/config.env
+    ports:
+      - 4000:4000
+    volumes:
+      - ./back:/app
+      - ./back/node_modules:/app/node_modules
+    depends_on:
+      - mdb
+    networks:
+      shop_network:
+        aliases:
+          - back_host
+#    command: sh -c "npm install && npm start"
+  
+  frontend:
+    image: front_img
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    container_name: front_svc
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - ./front:/app
+      - ./front/node_modules:/app/node_modules
+    depends_on:
+      - backend
+    networks:
+      shop_network:
+        aliases:
+          - front_host
+#    command: sh -c "yarn install && yarn start"
+  
+  mdb:
+    image: mongo:6.0.2
+    container_name: mongo_svc
+    restart: always
+    ports:
+      - 27027:27017
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      shop_network:
+        aliases:
+          - mongo_host
+networks:
+  shop_network:
+    driver: bridge
+    ipam:
+      driver: default
+volumes:
+  mongo_data:
+
